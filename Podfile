@@ -6,5 +6,6 @@ target 'OddJobsApp' do
   use_frameworks!
 
   # Pods for OddJobsApp
+  pod 'SnapKit'
 
 end
