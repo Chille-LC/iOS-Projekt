@@ -300,9 +300,8 @@ class JobViewController: UIViewController {
     
     //MARK: - Additional functions
     @objc private func callWorker() {
-        if let url = URL(string: "tel://\(job.worker.phone)"),
-        UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if let url = URL(string: "tel://\(job.worker.phone)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil) // u completion handler dodati mozda povecavanje broja obavljenih poslova iz fore
         }
     }
 }
