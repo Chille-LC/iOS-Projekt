@@ -15,17 +15,24 @@ class JobsMenuViewController: UIViewController {
     private let gradientRectHeight: CGFloat = 130
     
     //MARK: - VC elements
+    var coordinator: NavigationCoordinator! //Not private so we can use it in JobsMenuVC extension
     private var searchGradientRectangle: UIView!
     private var searchTextField: CustomTextField!
     private var jobsLabel: UILabel!
     private var jobsTableView: UITableView!
     
-    let model: [[Job]] = generateRandomData()
+    let model: [[Job]] = generateJobs()
     
     //TableViewVars
     var storedOffsets = [Int: CGFloat]()
     
     //MARK: - Code
+    convenience init(coordinator: NavigationCoordinator) {
+        self.init()
+        
+        self.coordinator = coordinator
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)

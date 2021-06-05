@@ -25,7 +25,7 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
     func setStartScreen(in window: UIWindow?) {
         let tabBarViewController = JobTabBarController()
         
-        let jobsVC = JobsMenuViewController()
+        let jobsVC = JobsMenuViewController(coordinator: self)
         let addJobVC = UIViewController()
         let settingsVC = UIViewController()
 
@@ -43,5 +43,11 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+    }
+    
+    func setJobVC(for job: Job) {
+        let vc = JobViewController(for: job)
+        
+        navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -72,6 +72,7 @@ extension JobsMenuViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected: \(collectionView.tag) , \(indexPath)")
+        coordinator.setJobVC(for: model[collectionView.tag][indexPath.item])
+        //print("Selected: \(collectionView.tag) , \(indexPath), \(model[collectionView.tag][indexPath.item])")
     }
 }
