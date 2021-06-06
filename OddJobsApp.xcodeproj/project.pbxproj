@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BB266D60B4000C6EF0 /* LoginViewController.swift */; };
 		636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F42664C158007BE8AF /* AppDelegate.swift */; };
 		636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F62664C158007BE8AF /* SceneDelegate.swift */; };
 		636E65FE2664C15A007BE8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636E65FD2664C15A007BE8AF /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		159A52D8F895B39187334F37 /* Pods_OddJobsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B5438A72308AD4093C60A3 /* Pods-OddJobsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsApp.release.xcconfig"; path = "Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp.release.xcconfig"; sourceTree = "<group>"; };
+		527581BB266D60B4000C6EF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		636E65F12664C158007BE8AF /* OddJobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636E65F42664C158007BE8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636E65F62664C158007BE8AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				63C8926C2668D11700CE27FA /* Presenters */,
 				63C892682668D06E00CE27FA /* JobMenu */,
 				63C89272266A0FE800CE27FA /* JobViewController.swift */,
+				527581BB266D60B4000C6EF0 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				63C892482667553A00CE27FA /* RANDOMDATA.swift in Sources */,
 				63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */,
 				63C892712668D8D500CE27FA /* User.swift in Sources */,
+				527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */,
 				636E660F26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift in Sources */,
 				63C892542667A56500CE27FA /* JobCategory.swift in Sources */,
 				63C892522667A48900CE27FA /* Job.swift in Sources */,
