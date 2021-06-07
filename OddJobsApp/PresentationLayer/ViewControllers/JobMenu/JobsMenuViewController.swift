@@ -12,7 +12,7 @@ class JobsMenuViewController: UIViewController {
 
     //MARK: - Constants
     private let heightElementDistance: CGFloat = 36
-    private let gradientRectHeight: CGFloat = 130
+    private let gradientRectHeightMul: CGFloat = 0.15
     
     //MARK: - VC elements
     var coordinator: NavigationCoordinator! //Not private so we can use it in JobsMenuVC extension
@@ -20,8 +20,12 @@ class JobsMenuViewController: UIViewController {
     private var searchTextField: CustomTextField!
     private var jobsLabel: UILabel!
     private var jobsTableView: UITableView!
+    private var gradient = CAGradientLayer()
     
     let model: [[Job]] = generateJobs()
+    
+    var landscapeConstraints: [Constraint] = []
+    var portraitConstraints: [Constraint] = []
     
     //TableViewVars
     var storedOffsets = [Int: CGFloat]()
@@ -45,6 +49,15 @@ class JobsMenuViewController: UIViewController {
         addConstraints()
     }
     
+    override func updateViewConstraints() {
+            super.updateViewConstraints()
+            updateConstraints()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            view.setNeedsUpdateConstraints()
+    }
+    
     //MARK: - Building Views and Constraints
     private func buildViews() {
         view.backgroundColor = .white
@@ -54,15 +67,22 @@ class JobsMenuViewController: UIViewController {
         createJobsLabel()
         createJobsTableView()
         
+        view.addSubview(jobsTableView)
         view.addSubview(searchGradientRectangle)
         view.addSubview(searchTextField)
         view.addSubview(jobsLabel)
-        view.addSubview(jobsTableView)
     }
     
     private func createSearchGradientRectangle() {
-        searchGradientRectangle = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: gradientRectHeight + 50))
-        let gradient = CAGradientLayer()
+        let height: CGFloat
+        switch(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass) {
+        case (.compact, .regular), (.compact, .compact): //Landscape
+            height = UIScreen.main.bounds.width
+        default:
+            height = UIScreen.main.bounds.height
+        }
+        
+        searchGradientRectangle = UIView(frame: CGRect(x: 0, y: 0, width: [UIScreen.main.bounds.width, UIScreen.main.bounds.height].min()!, height: height * gradientRectHeightMul + 50))
         
         gradient.frame = searchGradientRectangle.bounds
         gradient.colors = gradientColors
@@ -107,32 +127,87 @@ class JobsMenuViewController: UIViewController {
         jobsTableView.register(JobTableViewCell.self, forCellReuseIdentifier: "tableViewCell")
     }
     
+    private func updateConstraints() {
+        switch(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass) {
+        case (.compact, .regular), (.compact, .compact): //Landscape
+            portraitConstraints.forEach{ $0.deactivate() }
+            landscapeConstraints.forEach{ $0.activate() }
+            jobsLabel.isHidden = true
+        default:
+            landscapeConstraints.forEach{ $0.deactivate() }
+            portraitConstraints.forEach{ $0.activate() }
+            jobsLabel.isHidden = false
+        }
+    }
+    
     private func addConstraints() {
-        searchGradientRectangle.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.width.equalTo(view)
-            $0.top.equalTo(view).offset(-1 * 50)
-            $0.bottom.equalTo(view.snp.top).offset(gradientRectHeight)
+        var height: CGFloat
+        var width: CGFloat
+        
+        switch(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass) {
+        case (.compact, .regular), (.compact, .compact): //Landscape
+            height = UIScreen.main.bounds.width
+            width = UIScreen.main.bounds.height
+        default:
+            height = UIScreen.main.bounds.height
+            width = UIScreen.main.bounds.width
         }
         
-        searchTextField.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.width.equalTo(view).inset(elementInset)
-            $0.bottom.equalTo(searchGradientRectangle.snp.bottom).offset(-1 * 20)
-            $0.height.equalTo(textFieldHeight)
-        }
+        portraitConstraints.append(contentsOf:
+            searchGradientRectangle.snp.prepareConstraints {
+                $0.centerX.equalTo(view)
+                $0.width.equalTo(view)
+                $0.top.equalTo(view).offset(-1 * 50)
+                $0.bottom.equalTo(view.snp.top).offset(gradientRectHeightMul * height)
+            })
         
-        jobsLabel.snp.makeConstraints {
-            $0.leading.equalTo(view).offset(elementInset)
-            $0.top.equalTo(searchGradientRectangle.snp.bottom).offset(heightElementDistance)
-        }
+        portraitConstraints.append(contentsOf:
+            searchTextField.snp.prepareConstraints {
+                $0.centerX.equalTo(view)
+                $0.width.equalTo(view).inset(elementInset)
+                $0.bottom.equalTo(searchGradientRectangle.snp.bottom).offset(-1 * 20)
+                $0.height.equalTo(textFieldHeight)
+            })
         
-        jobsTableView.snp.makeConstraints {
-            $0.top.equalTo(jobsLabel.snp.bottom).offset(heightElementDistance - 20)
-            $0.width.equalTo(view)
-            $0.centerX.equalTo(view)
-            $0.bottom.equalTo(view.snp.bottom)
-        }
+        portraitConstraints.append(contentsOf:
+            jobsLabel.snp.prepareConstraints {
+                $0.leading.equalTo(view).offset(elementInset)
+                $0.top.equalTo(searchGradientRectangle.snp.bottom).offset(heightElementDistance)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            jobsTableView.snp.prepareConstraints {
+                $0.top.equalTo(jobsLabel.snp.bottom).offset(heightElementDistance - 20)
+                $0.width.equalTo(view)
+                $0.centerX.equalTo(view)
+                $0.bottom.equalTo(view.snp.bottom)
+            })
+        
+        
+        
+        landscapeConstraints.append(contentsOf:
+            searchGradientRectangle.snp.prepareConstraints {
+                $0.leading.equalTo(abs(width - height) / 2)
+                $0.width.equalTo(width)
+                $0.top.equalTo(view).offset(-1 * 50)
+                $0.bottom.equalTo(view.snp.top).offset(gradientRectHeightMul * height)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            searchTextField.snp.prepareConstraints {
+                $0.leading.equalTo(searchGradientRectangle.snp.leading).offset(elementInset)
+                $0.trailing.equalTo(searchGradientRectangle.snp.trailing).offset(-1 * elementInset)
+                $0.bottom.equalTo(searchGradientRectangle.snp.bottom).offset(-1 * 20)
+                $0.height.equalTo(textFieldHeight)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            jobsTableView.snp.prepareConstraints {
+                $0.top.equalTo(searchGradientRectangle.snp.bottom)
+                $0.width.equalTo(view)
+                $0.centerX.equalTo(view)
+                $0.bottom.equalTo(view.snp.bottom)
+            })
     }
     //MARK: - Additional functions
     
