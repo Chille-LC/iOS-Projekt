@@ -20,12 +20,12 @@ class LoginViewController: UIViewController {
     private var signupButton: UIButton!
     private var signupField: UIView!
     private var signupSeparator: UIView!
-    private var coordinator: NavigationCoordinator!
+    private var presenter: LoginPresenter!
     
     convenience init(coordinator: NavigationCoordinator) {
         self.init()
         
-        self.coordinator = coordinator
+        self.presenter = LoginPresenter(coordinator: coordinator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -194,17 +194,17 @@ class LoginViewController: UIViewController {
     }
     
     @objc func login(_ button: UIButton) {
-        if (emailTextField.text == "username" && passwordTextField.text == "password"){
-            coordinator.setJobsMenuVC()
-        }
-        else {
-            errorLabel.text = "Email or password is incorrect!"
-            errorLabel.isHidden = false
-        }
+        presenter.login(username: emailTextField.text!, password: passwordTextField.text!, completion: { [self]
+            status in
+            if(!status) {
+                errorLabel.text = "Email or password is incorrect!"
+                errorLabel.isHidden = false
+            }
+        })
     }
     
     @objc func signupForm(_ button: UIButton) {
-        coordinator.setSignupVC()
+        presenter.showSignupForm()
     }
     
     @objc func textFieldSelected(_ textField: CustomTextField) {

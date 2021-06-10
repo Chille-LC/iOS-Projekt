@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BB266D60B4000C6EF0 /* LoginViewController.swift */; };
 		527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BD267171C4000C6EF0 /* SignupViewController.swift */; };
+		527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BF26721DCC000C6EF0 /* LoginPresenter.swift */; };
+		527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581C126726831000C6EF0 /* SignupPresenter.swift */; };
 		636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F42664C158007BE8AF /* AppDelegate.swift */; };
 		636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F62664C158007BE8AF /* SceneDelegate.swift */; };
 		636E65FE2664C15A007BE8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636E65FD2664C15A007BE8AF /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		22B5438A72308AD4093C60A3 /* Pods-OddJobsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsApp.release.xcconfig"; path = "Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp.release.xcconfig"; sourceTree = "<group>"; };
 		527581BB266D60B4000C6EF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527581BD267171C4000C6EF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		527581BF26721DCC000C6EF0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		527581C126726831000C6EF0 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		636E65F12664C158007BE8AF /* OddJobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636E65F42664C158007BE8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636E65F62664C158007BE8AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				63C892552667A6D600CE27FA /* JobManager.swift */,
+				527581BF26721DCC000C6EF0 /* LoginPresenter.swift */,
+				527581C126726831000C6EF0 /* SignupPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */,
 				636E662B26662444007BE8AF /* Fonts.swift in Sources */,
 				63C8925A26681C2C00CE27FA /* JobTabBar.swift in Sources */,
 				63C892562667A6D600CE27FA /* JobManager.swift in Sources */,
@@ -405,6 +412,7 @@
 				636E6611266620D5007BE8AF /* Constants.swift in Sources */,
 				63C892602668205200CE27FA /* ImageEnum.swift in Sources */,
 				636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */,
+				527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */,
 				636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */,
 				527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */,
 				63C8924626674E7400CE27FA /* JobTableViewCell.swift in Sources */,

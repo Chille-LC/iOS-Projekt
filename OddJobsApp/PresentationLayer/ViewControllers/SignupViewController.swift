@@ -26,12 +26,12 @@ class SignupViewController: UIViewController {
     private var loginButton: UIButton!
     private var loginField: UIView!
     private var loginSeparator: UIView!
-    private var coordinator: NavigationCoordinator!
+    private var presenter: SignupPresenter!
     
     convenience init(coordinator: NavigationCoordinator) {
         self.init()
         
-        self.coordinator = coordinator
+        self.presenter = SignupPresenter(coordinator: coordinator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -285,17 +285,12 @@ class SignupViewController: UIViewController {
     }
     
     @objc func signup(_ button: UIButton){
-        if (emailTextField.text == "username" && passwordTextField.text == "password"){
-            coordinator.setJobsMenuVC()
-        }
-        else {
-            errorLabel.text = "Email or password is incorrect!"
-            errorLabel.isHidden = false
-        }
+        let newUser = User(id: 0, name: nameTextField.text!, surname: surnameTextField.text!, phone: phoneNumberTextField.text!, earned: 0, noOfJobs: 0)
+        presenter.signup(user: newUser, password: passwordTextField.text!, confirmedPassword: confirmPasswordTextField.text!)
     }
     
     @objc func returnToLogin(_ button: UIButton) {
-        coordinator.returnToLoginVC()
+        presenter.showLoginForm()
     }
     
     @objc func textFieldSelected(_ textField: CustomTextField) {
@@ -309,7 +304,12 @@ class SignupViewController: UIViewController {
     }
     
     @objc func textFieldChanged(_ textField: CustomTextField) {
-        if emailTextField.text != "" && passwordTextField.text != "" {
+        if emailTextField.text != ""
+            && passwordTextField.text != ""
+            && confirmPasswordTextField.text != ""
+            && nameTextField.text != ""
+            && surnameTextField.text != ""
+            && phoneNumberTextField.text != "" {
             signupButton.alpha = 1
             signupButton.isEnabled = true
         }

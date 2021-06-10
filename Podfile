@@ -8,4 +8,6 @@ target 'OddJobsApp' do
   # Pods for OddJobsApp
   pod 'SnapKit'
 
+  pod 'Reachability', '~> 3.2'
+
 end
