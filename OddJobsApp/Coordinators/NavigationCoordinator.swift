@@ -23,6 +23,15 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
 
     //MARK: - Functions
     func setStartScreen(in window: UIWindow?) {
+        let loginVC = LoginViewController(coordinator: self)
+        
+        navigationController.setViewControllers([loginVC], animated: true)
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+    
+    func setJobsMenuVC() {
         let tabBarViewController = JobTabBarController()
         
         let jobsVC = JobsMenuViewController(coordinator: self)
@@ -40,14 +49,21 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
         tabBarViewController.viewControllers = [jobsVC, addJobVC, settingsVC]
         
         navigationController.setViewControllers([tabBarViewController], animated: true)
-        
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
     }
     
     func setJobVC(for job: Job) {
         let vc = JobViewController(for: job)
         
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func setSignupVC() {
+        let signupVC = SignupViewController(coordinator: self)
+        
+        navigationController.pushViewController(signupVC, animated: true)
+    }
+    
+    func returnToLoginVC() {
+        navigationController.popViewController(animated: true)
     }
 }
