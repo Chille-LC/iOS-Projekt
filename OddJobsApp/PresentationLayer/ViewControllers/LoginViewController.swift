@@ -16,6 +16,10 @@ class LoginViewController: UIViewController {
     private var hidePasswordButton: UIButton!
     private var loginButton: UIButton!
     private var errorLabel: UILabel!
+    private var signupLabel: UILabel!
+    private var signupButton: UIButton!
+    private var signupField: UIView!
+    private var signupSeparator: UIView!
     private var coordinator: NavigationCoordinator!
     
     convenience init(coordinator: NavigationCoordinator) {
@@ -43,6 +47,7 @@ class LoginViewController: UIViewController {
         createTextFields()
         createLoginButton()
         createErrorLabel()
+        createSignupField()
         
         view.addSubview(logoImage)
         view.addSubview(emailTextField)
@@ -50,6 +55,7 @@ class LoginViewController: UIViewController {
         view.addSubview(hidePasswordButton)
         view.addSubview(loginButton)
         view.addSubview(errorLabel)
+        view.addSubview(signupField)
     }
     
     func createLogoImage() {
@@ -95,8 +101,29 @@ class LoginViewController: UIViewController {
     
     func createErrorLabel() {
         errorLabel = UILabel()
+        errorLabel.font = UIFont(name: Fonts.bold, size: 14)
         errorLabel.isHidden = true
         errorLabel.textColor = .red
+    }
+    
+    func createSignupField() {
+        signupLabel = UILabel()
+        signupLabel.textColor = MainColors.darkBlue
+        signupLabel.text = "Don't have an account?"
+        
+        signupButton = UIButton()
+        signupButton.setAttributedTitle(NSAttributedString(string: "Sign up!", attributes: [.font: UIFont(name: Fonts.extraBold, size: 14) ?? UIFont.systemFont(ofSize: 14)]), for: .normal)
+        signupButton.setTitleColor(MainColors.primaryOrange, for: .normal)
+        signupButton.addTarget(self, action: #selector(signupForm), for: .touchUpInside)
+        
+        signupSeparator = UIView()
+        signupSeparator.backgroundColor = .lightGray
+        
+        signupField = UIView()
+        signupField.backgroundColor = .white
+        signupField.addSubview(signupLabel)
+        signupField.addSubview(signupButton)
+        signupField.addSubview(signupSeparator)
     }
     
     func addConstraints() {
@@ -140,9 +167,33 @@ class LoginViewController: UIViewController {
             $0.width.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.8)
             $0.leading.equalTo(loginButton.snp.leading)
         }
+        
+        signupField.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(40)
+            $0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.centerX.equalToSuperview()
+        }
+        
+        signupLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview().offset(-30)
+            $0.centerY.equalToSuperview()
+        }
+        
+        signupButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(signupLabel.snp.trailing).offset(5)
+            //$0.trailing.equalToSuperview().offset()
+        }
+        
+        signupSeparator.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(1)
+        }
     }
     
-    @objc func login(_ button: UIButton){
+    @objc func login(_ button: UIButton) {
         if (emailTextField.text == "username" && passwordTextField.text == "password"){
             coordinator.setJobsMenuVC()
         }
@@ -150,6 +201,10 @@ class LoginViewController: UIViewController {
             errorLabel.text = "Email or password is incorrect!"
             errorLabel.isHidden = false
         }
+    }
+    
+    @objc func signupForm(_ button: UIButton) {
+        coordinator.setSignupVC()
     }
     
     @objc func textFieldSelected(_ textField: CustomTextField) {

@@ -56,4 +56,14 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
         
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func setSignupVC() {
+        let signupVC = SignupViewController(coordinator: self)
+        
+        navigationController.pushViewController(signupVC, animated: true)
+    }
+    
+    func returnToLoginVC() {
+        navigationController.popViewController(animated: true)
+    }
 }
