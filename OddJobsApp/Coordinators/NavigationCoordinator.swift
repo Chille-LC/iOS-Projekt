@@ -35,8 +35,8 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
         let tabBarViewController = JobTabBarController()
         
         let jobsVC = JobsMenuViewController(coordinator: self)
-        let addJobVC = UIViewController()
-        let settingsVC = UIViewController()
+        let addJobVC = AddJobViewController(coordinator: self)
+        let settingsVC = SettingsViewController(coordinator: self)
 
         jobsVC.tabBarItem = UITabBarItem(title: nil, image: ImageEnum.jobTabBarItem.image, selectedImage: ImageEnum.jobTabBarItemSelected.image)
         addJobVC.tabBarItem = UITabBarItem(title: nil, image: ImageEnum.addJobTabBarItem.image, selectedImage: ImageEnum.addJobTabBarItemSelected.image)

@@ -8,6 +8,10 @@ import UIKit
 
 let gradientColors: [CGColor] = [UIColor(red: 255/255, green: 190/255, blue: 70/255, alpha: 1).cgColor,
                                  UIColor(red: 251/255, green: 163/255, blue: 0, alpha: 1).cgColor]
+
+let gradientColorsSecondary: [CGColor] = [UIColor(red: 255/255, green: 190/255, blue: 70/255, alpha: 0.9).cgColor,
+                                          UIColor(red: 251/255, green: 163/255, blue: 0, alpha: 0.9).cgColor]
+
 let textFieldHeight: CGFloat = 50
 let elementInset: CGFloat = 30
 
