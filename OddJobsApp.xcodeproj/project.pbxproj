@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B4F8FE92672A7EA0010A2A6 /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F8FE32672A7EA0010A2A6 /* AddJobViewController.swift */; };
+		1B4F8FEC2672A7EA0010A2A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F8FE82672A7EA0010A2A6 /* SettingsViewController.swift */; };
+		1B4F8FF52672A8C60010A2A6 /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F8FF32672A8C60010A2A6 /* CategoryPicker.swift */; };
+		1B4F8FF62672A8C60010A2A6 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F8FF42672A8C60010A2A6 /* TextFieldExtension.swift */; };
+		1B4F8FF82672A8D90010A2A6 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F8FF72672A8D90010A2A6 /* TextFieldWithPadding.swift */; };
+		527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BB266D60B4000C6EF0 /* LoginViewController.swift */; };
+		527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BD267171C4000C6EF0 /* SignupViewController.swift */; };
+		527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BF26721DCC000C6EF0 /* LoginPresenter.swift */; };
+		527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581C126726831000C6EF0 /* SignupPresenter.swift */; };
+		636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F42664C158007BE8AF /* AppDelegate.swift */; };
+		636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F62664C158007BE8AF /* SceneDelegate.swift */; };
+		636E65FE2664C15A007BE8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636E65FD2664C15A007BE8AF /* Assets.xcassets */; };
+		636E66012664C15A007BE8AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636E65FF2664C15A007BE8AF /* LaunchScreen.storyboard */; };
+		636E66092664C517007BE8AF /* JobsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E66082664C517007BE8AF /* JobsMenuViewController.swift */; };
+		636E660F26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E660E26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift */; };
+		636E6611266620D5007BE8AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E6610266620D5007BE8AF /* Constants.swift */; };
+		636E6614266622C5007BE8AF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E6613266622C5007BE8AF /* CustomTextField.swift */; };
+		636E662B26662444007BE8AF /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E662A26662444007BE8AF /* Fonts.swift */; };
+		63C8923C26666B2800CE27FA /* GothicA1-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923326666B2700CE27FA /* GothicA1-Regular.ttf */; };
+		63C8923D26666B2800CE27FA /* GothicA1-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923426666B2700CE27FA /* GothicA1-Bold.ttf */; };
+		63C8923E26666B2800CE27FA /* GothicA1-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923526666B2700CE27FA /* GothicA1-Black.ttf */; };
+		63C8923F26666B2800CE27FA /* GothicA1-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923626666B2700CE27FA /* GothicA1-Medium.ttf */; };
+		63C8924026666B2800CE27FA /* GothicA1-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923726666B2700CE27FA /* GothicA1-SemiBold.ttf */; };
+		63C8924126666B2800CE27FA /* GothicA1-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923826666B2700CE27FA /* GothicA1-Thin.ttf */; };
+		63C8924226666B2800CE27FA /* GothicA1-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923926666B2800CE27FA /* GothicA1-ExtraLight.ttf */; };
+		63C8924326666B2800CE27FA /* GothicA1-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923A26666B2800CE27FA /* GothicA1-Light.ttf */; };
+		63C8924426666B2800CE27FA /* GothicA1-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63C8923B26666B2800CE27FA /* GothicA1-ExtraBold.ttf */; };
+		63C8924626674E7400CE27FA /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8924526674E7400CE27FA /* JobTableViewCell.swift */; };
+		63C892482667553A00CE27FA /* RANDOMDATA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892472667553A00CE27FA /* RANDOMDATA.swift */; };
+		63C8924A26675A0300CE27FA /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8924926675A0300CE27FA /* JobCollectionViewCell.swift */; };
+		63C8924C26676D1100CE27FA /* UITableViewCell+addSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8924B26676D1100CE27FA /* UITableViewCell+addSubview.swift */; };
+		63C8924E26678D7D00CE27FA /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8924D26678D7D00CE27FA /* WaveView.swift */; };
+		63C892522667A48900CE27FA /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892512667A48900CE27FA /* Job.swift */; };
+		63C892542667A56500CE27FA /* JobCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892532667A56500CE27FA /* JobCategory.swift */; };
+		63C892562667A6D600CE27FA /* JobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892552667A6D600CE27FA /* JobManager.swift */; };
+		63C8925A26681C2C00CE27FA /* JobTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8925926681C2C00CE27FA /* JobTabBar.swift */; };
+		63C8925E26681E1200CE27FA /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8925D26681E1200CE27FA /* NavigationCoordinator.swift */; };
+		63C892602668205200CE27FA /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8925F2668205200CE27FA /* ImageEnum.swift */; };
+		63C892662668CBCB00CE27FA /* JobTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892652668CBCB00CE27FA /* JobTabBarController.swift */; };
+		63C892712668D8D500CE27FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892702668D8D500CE27FA /* User.swift */; };
+		63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C89272266A0FE800CE27FA /* JobViewController.swift */; };
+		F84D219A7D6BC05294132CAA /* Pods_OddJobsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159A52D8F895B39187334F37 /* Pods_OddJobsApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		159A52D8F895B39187334F37 /* Pods_OddJobsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B4F8FE32672A7EA0010A2A6 /* AddJobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
+		1B4F8FE82672A7EA0010A2A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1B4F8FF32672A8C60010A2A6 /* CategoryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
+		1B4F8FF42672A8C60010A2A6 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		1B4F8FF72672A8D90010A2A6 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		22B5438A72308AD4093C60A3 /* Pods-OddJobsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsApp.release.xcconfig"; path = "Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp.release.xcconfig"; sourceTree = "<group>"; };
+		527581BB266D60B4000C6EF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		527581BD267171C4000C6EF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		527581BF26721DCC000C6EF0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		527581C126726831000C6EF0 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		636E65F12664C158007BE8AF /* OddJobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		636E65F42664C158007BE8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		636E65F62664C158007BE8AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		636E65FD2664C15A007BE8AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		636E66002664C15A007BE8AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		636E66022664C15A007BE8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		636E66082664C517007BE8AF /* JobsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsMenuViewController.swift; sourceTree = "<group>"; };
+		636E660E26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobsMenuViewController+TableAndCollectionView.swift"; sourceTree = "<group>"; };
+		636E6610266620D5007BE8AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		636E6613266622C5007BE8AF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		636E662A26662444007BE8AF /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		63C8923326666B2700CE27FA /* GothicA1-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Regular.ttf"; sourceTree = "<group>"; };
+		63C8923426666B2700CE27FA /* GothicA1-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Bold.ttf"; sourceTree = "<group>"; };
+		63C8923526666B2700CE27FA /* GothicA1-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Black.ttf"; sourceTree = "<group>"; };
+		63C8923626666B2700CE27FA /* GothicA1-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Medium.ttf"; sourceTree = "<group>"; };
+		63C8923726666B2700CE27FA /* GothicA1-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-SemiBold.ttf"; sourceTree = "<group>"; };
+		63C8923826666B2700CE27FA /* GothicA1-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Thin.ttf"; sourceTree = "<group>"; };
+		63C8923926666B2800CE27FA /* GothicA1-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-ExtraLight.ttf"; sourceTree = "<group>"; };
+		63C8923A26666B2800CE27FA /* GothicA1-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-Light.ttf"; sourceTree = "<group>"; };
+		63C8923B26666B2800CE27FA /* GothicA1-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothicA1-ExtraBold.ttf"; sourceTree = "<group>"; };
+		63C8924526674E7400CE27FA /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		63C892472667553A00CE27FA /* RANDOMDATA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RANDOMDATA.swift; sourceTree = "<group>"; };
+		63C8924926675A0300CE27FA /* JobCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCollectionViewCell.swift; sourceTree = "<group>"; };
+		63C8924B26676D1100CE27FA /* UITableViewCell+addSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+addSubview.swift"; sourceTree = "<group>"; };
+		63C8924D26678D7D00CE27FA /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		63C892512667A48900CE27FA /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		63C892532667A56500CE27FA /* JobCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCategory.swift; sourceTree = "<group>"; };
+		63C892552667A6D600CE27FA /* JobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobManager.swift; sourceTree = "<group>"; };
+		63C8925926681C2C00CE27FA /* JobTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTabBar.swift; sourceTree = "<group>"; };
+		63C8925D26681E1200CE27FA /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		63C8925F2668205200CE27FA /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
+		63C892652668CBCB00CE27FA /* JobTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTabBarController.swift; sourceTree = "<group>"; };
+		63C892702668D8D500CE27FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		63C89272266A0FE800CE27FA /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		AAAC86D063CB2187F45A33DB /* Pods-OddJobsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsApp.debug.xcconfig"; path = "Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		636E65EE2664C158007BE8AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F84D219A7D6BC05294132CAA /* Pods_OddJobsApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		182B3BFFF28AC93A8444AC02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAAC86D063CB2187F45A33DB /* Pods-OddJobsApp.debug.xcconfig */,
+				22B5438A72308AD4093C60A3 /* Pods-OddJobsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1B4F8FE12672A7AA0010A2A6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				527581BD267171C4000C6EF0 /* SignupViewController.swift */,
+				527581BB266D60B4000C6EF0 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1B4F8FE22672A7EA0010A2A6 /* AddJob */ = {
+			isa = PBXGroup;
+			children = (
+				1B4F8FF22672A8C60010A2A6 /* Helpers */,
+				1B4F8FE32672A7EA0010A2A6 /* AddJobViewController.swift */,
+			);
+			path = AddJob;
+			sourceTree = "<group>";
+		};
+		1B4F8FE72672A7EA0010A2A6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B4F8FE82672A7EA0010A2A6 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1B4F8FF22672A8C60010A2A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1B4F8FF72672A8D90010A2A6 /* TextFieldWithPadding.swift */,
+				1B4F8FF32672A8C60010A2A6 /* CategoryPicker.swift */,
+				1B4F8FF42672A8C60010A2A6 /* TextFieldExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		636E65E82664C158007BE8AF = {
+			isa = PBXGroup;
+			children = (
+				636E65F32664C158007BE8AF /* OddJobsApp */,
+				636E65F22664C158007BE8AF /* Products */,
+				182B3BFFF28AC93A8444AC02 /* Pods */,
+				B5FD24E59BC72BB12962BD92 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		636E65F22664C158007BE8AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				636E65F12664C158007BE8AF /* OddJobsApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		636E65F32664C158007BE8AF /* OddJobsApp */ = {
+			isa = PBXGroup;
+			children = (
+				63C8926D2668D13000CE27FA /* Coordinators */,
+				63C8926F2668D18000CE27FA /* PresentationLayer */,
+				63C8926E2668D16900CE27FA /* DataLayer */,
+				636E65F42664C158007BE8AF /* AppDelegate.swift */,
+				636E65F62664C158007BE8AF /* SceneDelegate.swift */,
+				636E65FD2664C15A007BE8AF /* Assets.xcassets */,
+				636E65FF2664C15A007BE8AF /* LaunchScreen.storyboard */,
+				636E66022664C15A007BE8AF /* Info.plist */,
+				636E6610266620D5007BE8AF /* Constants.swift */,
+				63C8923226666AFD00CE27FA /* Fonts */,
+				63C8926A2668D0CB00CE27FA /* Extensions */,
+			);
+			path = OddJobsApp;
+			sourceTree = "<group>";
+		};
+		636E6612266622AD007BE8AF /* CustomUIKitElements */ = {
+			isa = PBXGroup;
+			children = (
+				636E6613266622C5007BE8AF /* CustomTextField.swift */,
+				63C8925926681C2C00CE27FA /* JobTabBar.swift */,
+				63C892652668CBCB00CE27FA /* JobTabBarController.swift */,
+				63C8924D26678D7D00CE27FA /* WaveView.swift */,
+			);
+			path = CustomUIKitElements;
+			sourceTree = "<group>";
+		};
+		63C8923226666AFD00CE27FA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				63C8923526666B2700CE27FA /* GothicA1-Black.ttf */,
+				63C8923426666B2700CE27FA /* GothicA1-Bold.ttf */,
+				63C8923B26666B2800CE27FA /* GothicA1-ExtraBold.ttf */,
+				63C8923926666B2800CE27FA /* GothicA1-ExtraLight.ttf */,
+				63C8923A26666B2800CE27FA /* GothicA1-Light.ttf */,
+				63C8923626666B2700CE27FA /* GothicA1-Medium.ttf */,
+				63C8923326666B2700CE27FA /* GothicA1-Regular.ttf */,
+				63C8923726666B2700CE27FA /* GothicA1-SemiBold.ttf */,
+				63C8923826666B2700CE27FA /* GothicA1-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		63C892672668D04800CE27FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B4F8FE22672A7EA0010A2A6 /* AddJob */,
+				1B4F8FE72672A7EA0010A2A6 /* Settings */,
+				1B4F8FE12672A7AA0010A2A6 /* Login */,
+				63C8926C2668D11700CE27FA /* Presenters */,
+				63C892682668D06E00CE27FA /* JobMenu */,
+				63C89272266A0FE800CE27FA /* JobViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		63C892682668D06E00CE27FA /* JobMenu */ = {
+			isa = PBXGroup;
+			children = (
+				63C8924526674E7400CE27FA /* JobTableViewCell.swift */,
+				63C8924926675A0300CE27FA /* JobCollectionViewCell.swift */,
+				636E660E26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift */,
+				636E66082664C517007BE8AF /* JobsMenuViewController.swift */,
+			);
+			path = JobMenu;
+			sourceTree = "<group>";
+		};
+		63C892692668D08900CE27FA /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				636E662A26662444007BE8AF /* Fonts.swift */,
+				63C8925F2668205200CE27FA /* ImageEnum.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		63C8926A2668D0CB00CE27FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63C8924B26676D1100CE27FA /* UITableViewCell+addSubview.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63C8926B2668D0F700CE27FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63C892512667A48900CE27FA /* Job.swift */,
+				63C892532667A56500CE27FA /* JobCategory.swift */,
+				63C892702668D8D500CE27FA /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		63C8926C2668D11700CE27FA /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				63C892552667A6D600CE27FA /* JobManager.swift */,
+				527581BF26721DCC000C6EF0 /* LoginPresenter.swift */,
+				527581C126726831000C6EF0 /* SignupPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		63C8926D2668D13000CE27FA /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				63C8925D26681E1200CE27FA /* NavigationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		63C8926E2668D16900CE27FA /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				63C8926B2668D0F700CE27FA /* Models */,
+				63C892472667553A00CE27FA /* RANDOMDATA.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		63C8926F2668D18000CE27FA /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				636E6612266622AD007BE8AF /* CustomUIKitElements */,
+				63C892692668D08900CE27FA /* Style */,
+				63C892672668D04800CE27FA /* ViewControllers */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		B5FD24E59BC72BB12962BD92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				159A52D8F895B39187334F37 /* Pods_OddJobsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		636E65F02664C158007BE8AF /* OddJobsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 636E66052664C15A007BE8AF /* Build configuration list for PBXNativeTarget "OddJobsApp" */;
+			buildPhases = (
+				1A35D75B64D6A3BA9450092E /* [CP] Check Pods Manifest.lock */,
+				636E65ED2664C158007BE8AF /* Sources */,
+				636E65EE2664C158007BE8AF /* Frameworks */,
+				636E65EF2664C158007BE8AF /* Resources */,
+				AAD5DEBC68F3CD3922EDCA47 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OddJobsApp;
+			productName = OddJobsApp;
+			productReference = 636E65F12664C158007BE8AF /* OddJobsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		636E65E92664C158007BE8AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					636E65F02664C158007BE8AF = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 636E65EC2664C158007BE8AF /* Build configuration list for PBXProject "OddJobsApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 636E65E82664C158007BE8AF;
+			productRefGroup = 636E65F22664C158007BE8AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				636E65F02664C158007BE8AF /* OddJobsApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		636E65EF2664C158007BE8AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E66012664C15A007BE8AF /* LaunchScreen.storyboard in Resources */,
+				63C8924326666B2800CE27FA /* GothicA1-Light.ttf in Resources */,
+				63C8924426666B2800CE27FA /* GothicA1-ExtraBold.ttf in Resources */,
+				63C8924226666B2800CE27FA /* GothicA1-ExtraLight.ttf in Resources */,
+				63C8923E26666B2800CE27FA /* GothicA1-Black.ttf in Resources */,
+				636E65FE2664C15A007BE8AF /* Assets.xcassets in Resources */,
+				63C8923C26666B2800CE27FA /* GothicA1-Regular.ttf in Resources */,
+				63C8924026666B2800CE27FA /* GothicA1-SemiBold.ttf in Resources */,
+				63C8924126666B2800CE27FA /* GothicA1-Thin.ttf in Resources */,
+				63C8923D26666B2800CE27FA /* GothicA1-Bold.ttf in Resources */,
+				63C8923F26666B2800CE27FA /* GothicA1-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A35D75B64D6A3BA9450092E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OddJobsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAD5DEBC68F3CD3922EDCA47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		636E65ED2664C158007BE8AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */,
+				636E662B26662444007BE8AF /* Fonts.swift in Sources */,
+				63C8925A26681C2C00CE27FA /* JobTabBar.swift in Sources */,
+				63C892562667A6D600CE27FA /* JobManager.swift in Sources */,
+				63C892662668CBCB00CE27FA /* JobTabBarController.swift in Sources */,
+				1B4F8FF62672A8C60010A2A6 /* TextFieldExtension.swift in Sources */,
+				636E66092664C517007BE8AF /* JobsMenuViewController.swift in Sources */,
+				1B4F8FF82672A8D90010A2A6 /* TextFieldWithPadding.swift in Sources */,
+				63C8925E26681E1200CE27FA /* NavigationCoordinator.swift in Sources */,
+				63C8924A26675A0300CE27FA /* JobCollectionViewCell.swift in Sources */,
+				1B4F8FE92672A7EA0010A2A6 /* AddJobViewController.swift in Sources */,
+				63C892482667553A00CE27FA /* RANDOMDATA.swift in Sources */,
+				63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */,
+				63C892712668D8D500CE27FA /* User.swift in Sources */,
+				527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */,
+				636E660F26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift in Sources */,
+				63C892542667A56500CE27FA /* JobCategory.swift in Sources */,
+				63C892522667A48900CE27FA /* Job.swift in Sources */,
+				63C8924C26676D1100CE27FA /* UITableViewCell+addSubview.swift in Sources */,
+				636E6614266622C5007BE8AF /* CustomTextField.swift in Sources */,
+				63C8924E26678D7D00CE27FA /* WaveView.swift in Sources */,
+				1B4F8FF52672A8C60010A2A6 /* CategoryPicker.swift in Sources */,
+				636E6611266620D5007BE8AF /* Constants.swift in Sources */,
+				63C892602668205200CE27FA /* ImageEnum.swift in Sources */,
+				1B4F8FEC2672A7EA0010A2A6 /* SettingsViewController.swift in Sources */,
+				636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */,
+				527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */,
+				636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */,
+				527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */,
+				63C8924626674E7400CE27FA /* JobTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		636E65FF2664C15A007BE8AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636E66002664C15A007BE8AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		636E66032664C15A007BE8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		636E66042664C15A007BE8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		636E66062664C15A007BE8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAAC86D063CB2187F45A33DB /* Pods-OddJobsApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U9LSYL6BJC;
+				INFOPLIST_FILE = OddJobsApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hr.fer.iosProjekt.OddJobsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		636E66072664C15A007BE8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22B5438A72308AD4093C60A3 /* Pods-OddJobsApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U9LSYL6BJC;
+				INFOPLIST_FILE = OddJobsApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hr.fer.iosProjekt.OddJobsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		636E65EC2664C158007BE8AF /* Build configuration list for PBXProject "OddJobsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636E66032664C15A007BE8AF /* Debug */,
+				636E66042664C15A007BE8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		636E66052664C15A007BE8AF /* Build configuration list for PBXNativeTarget "OddJobsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636E66062664C15A007BE8AF /* Debug */,
+				636E66072664C15A007BE8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 636E65E92664C158007BE8AF /* Project object */;
+}
