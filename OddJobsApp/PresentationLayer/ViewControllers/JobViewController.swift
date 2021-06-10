@@ -14,6 +14,8 @@ class JobViewController: UIViewController {
     private let gradientRectangleHeightMul: CGFloat = 0.32
     private let fromTitleOffsetInScrollView: CGFloat = 20
     private let fromPrevOffsetInScrollView: CGFloat = 20
+    private let titleFontSize: CGFloat = 45
+    private let nameSurnameFontSize: CGFloat = 32
     
     //MARK: - VC elements
     private var job: Job!
@@ -38,6 +40,9 @@ class JobViewController: UIViewController {
     private var priceLabel: UILabel!
     private var hireButton: UIButton!
     
+    var landscapeConstraints: [Constraint] = []
+    var portraitConstraints: [Constraint] = []
+    
     //MARK: - Code
     convenience init(for job: Job) {
         self.init()
@@ -57,6 +62,15 @@ class JobViewController: UIViewController {
         addConstraints()
     }
     
+    override func updateViewConstraints() {
+            super.updateViewConstraints()
+            updateConstraints()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            view.setNeedsUpdateConstraints()
+    }
+    
     //MARK: - Building Views and Constraints
     private func buildViews() {
         view.backgroundColor = .white
@@ -69,6 +83,7 @@ class JobViewController: UIViewController {
         createHireButton()
         
         view.addSubview(gradientRectangle)
+        view.addSubview(memojiImage)
         view.addSubview(nameSurnameLabel)
         view.addSubview(scrollView)
         view.addSubview(priceLabel)
@@ -89,7 +104,7 @@ class JobViewController: UIViewController {
     }
     
     private func createGradientRectangleAndSubviews() {
-        gradientRectangle = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: gradientRectangleHeightMul * UIScreen.main.bounds.height + 50))
+        gradientRectangle = UIView(frame: CGRect(x: 0, y: 0, width: [UIScreen.main.bounds.width, UIScreen.main.bounds.height].min()!, height: [UIScreen.main.bounds.width, UIScreen.main.bounds.height].max()! * gradientRectangleHeightMul + 50))
         let gradient = CAGradientLayer()
         
         gradient.frame = gradientRectangle.bounds
@@ -109,7 +124,7 @@ class JobViewController: UIViewController {
         
         titleLabel = UILabel()
         titleLabel.text = job.title
-        titleLabel.font = UIFont(name: Fonts.extraBold, size: 45)
+        titleLabel.font = UIFont(name: Fonts.extraBold, size: titleFontSize)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         
@@ -128,13 +143,12 @@ class JobViewController: UIViewController {
         
         gradientRectangle.addSubview(titleLabel)
         gradientRectangle.addSubview(subtitleLabel)
-        gradientRectangle.addSubview(memojiImage)
     }
     
     private func createNameLabel() {
         nameSurnameLabel = UILabel()
         nameSurnameLabel.text = "\(job.worker.name) \(job.worker.surname)"
-        nameSurnameLabel.font = UIFont(name: Fonts.bold, size: 32)
+        nameSurnameLabel.font = UIFont(name: Fonts.bold, size: nameSurnameFontSize)
         nameSurnameLabel.textAlignment = .center
         nameSurnameLabel.textColor = MainColors.darkBlue
     }
@@ -150,6 +164,8 @@ class JobViewController: UIViewController {
         descriptionTitleLabel.textColor = MainColors.darkBlue
         
         descriptionTextLabel = UILabel()
+        descriptionTextLabel.numberOfLines = 0
+        descriptionTextLabel.lineBreakMode = .byWordWrapping
         descriptionTextLabel.text = job.description
         descriptionTextLabel.font = UIFont(name: Fonts.regular, size: 20)
         descriptionTextLabel.textAlignment = .left
@@ -179,7 +195,7 @@ class JobViewController: UIViewController {
         completedJobsTextLabel.textAlignment = .left
         completedJobsTextLabel.textColor = MainColors.darkBlue
         
-        scrollView.contentSize = CGSize(width: view.frame.size.width - 2 * elementInset, height: 400) //promijeniti ovo 400 na dinamicnu vrijednost
+        scrollView.contentSize = CGSize(width: [UIScreen.main.bounds.width, UIScreen.main.bounds.height].min()! - 2 * elementInset, height: 350)
         scrollView.showsVerticalScrollIndicator = false
         
         scrollView.addSubview(descriptionTitleLabel)
@@ -202,7 +218,7 @@ class JobViewController: UIViewController {
     }
     
     private func createHireButton() {
-        hireButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 70))
+        hireButton = UIButton(frame: CGRect(x: 0, y: 0, width: [UIScreen.main.bounds.width, UIScreen.main.bounds.height].max()!, height: 70))
         
         let gradient = CAGradientLayer()
         gradient.frame = hireButton.bounds
@@ -216,87 +232,6 @@ class JobViewController: UIViewController {
         
         hireButton.addTarget(self, action: #selector(callWorker), for: .touchUpInside)
     }
-
-    private func addConstraints() {
-        gradientRectangle.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.width.equalTo(view)
-            $0.top.equalTo(view).offset(-1 * 50)
-            $0.bottom.equalTo(view.snp.top).offset(gradientRectangleHeightMul * UIScreen.main.bounds.height)
-        }
-        
-        titleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(subtitleLabel).offset(-1 * 25)
-        }
-        
-        subtitleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(memojiImage.snp.top).offset(-1 * 0.05 * gradientRectangle.frame.height)
-        }
-        
-        memojiImage.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.centerY.equalTo(gradientRectangle.snp.bottom)
-            $0.height.equalTo(100)
-            $0.width.equalTo(100)
-        }
-        
-        nameSurnameLabel.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.top.equalTo(memojiImage.snp.bottom).offset(0.02 * view.frame.height)
-        }
-        
-        scrollView.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.width.equalTo(view).inset(elementInset)
-            $0.top.equalTo(nameSurnameLabel.snp.bottom).offset(0.05 * view.frame.height)
-            $0.bottom.equalTo(hireButton.snp.top).offset(-1 * 10)
-        }
-        
-        descriptionTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
-        
-        descriptionTextLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(descriptionTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
-        }
-        
-        phoneTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(descriptionTextLabel.snp.bottom).offset(fromPrevOffsetInScrollView)
-        }
-        
-        phoneTextLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(phoneTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
-        }
-        
-        completedJobsTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(phoneTextLabel.snp.bottom).offset(fromPrevOffsetInScrollView)
-        }
-        
-        completedJobsTextLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(completedJobsTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
-        }
-        
-        priceLabel.snp.makeConstraints {
-            $0.leading.equalTo(view).offset(elementInset)
-            $0.width.equalTo(110)
-            $0.bottom.equalTo(view.snp.bottom).offset(-1 * 55)
-        }
-        
-        hireButton.snp.makeConstraints {
-            $0.leading.equalTo(priceLabel.snp.trailing).offset(elementInset)
-            $0.trailing.equalTo(view.snp.trailing).offset(-1 * elementInset)
-            $0.height.equalTo(70)
-            $0.bottom.equalTo(view.snp.bottom).offset(-1 * 40)
-        }
-    }
     
     //MARK: - Additional functions
     @objc private func callWorker() {
@@ -305,3 +240,188 @@ class JobViewController: UIViewController {
         }
     }
 }
+
+//MARK: - Constraints
+extension JobViewController {
+    private func updateConstraints() {
+        switch(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass) {
+        case (.compact, .regular), (.compact, .compact): //Landscape
+            navigationController?.navigationBar.tintColor = MainColors.primaryOrange
+            titleLabel.font = titleLabel.font.withSize(22)
+            nameSurnameLabel.font = nameSurnameLabel.font.withSize(25)
+            portraitConstraints.forEach{ $0.deactivate() }
+            landscapeConstraints.forEach{ $0.activate() }
+            
+        default:
+            navigationController?.navigationBar.tintColor = .white
+            titleLabel.font = titleLabel.font.withSize(titleFontSize)
+            nameSurnameLabel.font = nameSurnameLabel.font.withSize(nameSurnameFontSize)
+            landscapeConstraints.forEach{ $0.deactivate() }
+            portraitConstraints.forEach{ $0.activate() }
+        }
+    }
+    
+    //Breaka neki constraint pri prelasku iz portraita u landscape
+    private func addConstraints() {
+        var height: CGFloat
+        var width: CGFloat
+        
+        switch(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass) {
+        case (.compact, .regular), (.compact, .compact): //Landscape
+            height = UIScreen.main.bounds.width
+            width = UIScreen.main.bounds.height
+        default:
+            height = UIScreen.main.bounds.height
+            width = UIScreen.main.bounds.width
+        }
+        
+        
+        portraitConstraints.append(contentsOf:
+            gradientRectangle.snp.prepareConstraints {
+                $0.width.equalTo(width)
+                $0.top.equalTo(view).offset(-1 * gradientRectangle.layer.cornerRadius)
+                $0.centerX.equalTo(view)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            memojiImage.snp.prepareConstraints {
+                $0.centerX.equalTo(gradientRectangle.snp.centerX)
+                $0.bottom.equalTo(view.snp.top).offset(gradientRectangle.frame.size.height + -1 * gradientRectangle.layer.cornerRadius + 50)//(220)
+                $0.height.equalTo(100)
+                $0.width.equalTo(100)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            subtitleLabel.snp.prepareConstraints {
+                $0.width.equalToSuperview()
+                $0.centerX.equalToSuperview()
+                $0.bottom.equalTo(memojiImage.snp.top).offset(-1 * elementInset)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            titleLabel.snp.prepareConstraints {
+                $0.width.equalToSuperview()
+                $0.bottom.equalTo(subtitleLabel.snp.top).offset(-1 * 20)
+                $0.centerX.equalToSuperview()
+            })
+        
+        portraitConstraints.append(contentsOf:
+            nameSurnameLabel.snp.prepareConstraints {
+                $0.top.equalTo(memojiImage.snp.bottom).offset(elementInset)
+                $0.centerX.equalTo(view)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            priceLabel.snp.prepareConstraints {
+                $0.leading.equalTo(view).offset(elementInset)
+                $0.bottom.equalTo(view).offset(-1 * elementInset - 20)
+                $0.width.equalTo(110)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            hireButton.snp.prepareConstraints {
+                $0.leading.equalTo(priceLabel.snp.trailing).offset(elementInset)
+                $0.bottom.equalTo(view).offset(-1 * elementInset)
+                $0.trailing.equalTo(view).offset(-1 * elementInset)
+                $0.height.equalTo(70)
+            })
+        
+        portraitConstraints.append(contentsOf:
+            scrollView.snp.prepareConstraints {
+                $0.top.equalTo(nameSurnameLabel.snp.bottom).offset(elementInset)
+                $0.leading.equalTo(view).offset(elementInset)
+                $0.trailing.equalTo(view).offset(-1 * elementInset)
+                $0.bottom.equalTo(hireButton.snp.top).offset(-1 * elementInset / 3)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            gradientRectangle.snp.prepareConstraints {
+                $0.width.equalTo(width)
+                $0.centerX.equalTo(view)
+                $0.top.equalTo(view.snp.top).offset(-1 * (2.75/5 * width))
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            memojiImage.snp.prepareConstraints {
+                $0.centerX.equalTo(gradientRectangle.snp.centerX)
+                $0.top.equalTo(view.snp.top).offset(-1 * (2.75/5 * width) + gradientRectangle.frame.height - 50)
+                $0.height.equalTo(100)
+                $0.width.equalTo(100)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            subtitleLabel.snp.prepareConstraints {
+                $0.bottom.equalTo(memojiImage.snp.top).offset(-1 * elementInset / 6)
+                $0.centerX.equalToSuperview()
+                $0.width.equalToSuperview()
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            titleLabel.snp.prepareConstraints {
+                $0.bottom.equalTo(subtitleLabel.snp.top).offset(-1 * elementInset / 6)
+                $0.centerX.equalToSuperview()
+                $0.width.equalToSuperview()
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            nameSurnameLabel.snp.prepareConstraints {
+                $0.top.equalTo(memojiImage.snp.bottom).offset(elementInset / 3)
+                $0.centerX.equalTo(memojiImage.snp.centerX)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            priceLabel.snp.prepareConstraints {
+                $0.leading.equalTo(view.snp.leading).offset(elementInset)
+                $0.width.equalTo(150)
+                $0.bottom.equalTo(view.snp.bottom).offset(-1 * elementInset / 3 - 10)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            hireButton.snp.prepareConstraints {
+                $0.leading.equalTo(priceLabel.snp.trailing).offset(elementInset)
+                $0.trailing.equalTo(height).offset(-1 * elementInset)
+                $0.bottom.equalTo(-1 * elementInset / 3)
+                $0.height.equalTo(50)
+            })
+        
+        landscapeConstraints.append(contentsOf:
+            scrollView.snp.prepareConstraints {
+                $0.leading.equalTo(view.snp.leading).offset(elementInset)
+                $0.trailing.equalTo(view.snp.trailing).offset(-1 * elementInset)
+                $0.top.equalTo(nameSurnameLabel.snp.bottom).offset(elementInset / 3)
+                $0.bottom.equalTo(hireButton.snp.top).offset(-1 * elementInset / 3)
+            })
+        
+        descriptionTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(scrollView)
+            $0.leading.equalTo(scrollView)
+        }
+        
+        descriptionTextLabel.snp.makeConstraints {
+            $0.top.equalTo(descriptionTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
+            $0.leading.equalTo(scrollView)
+            $0.width.equalTo(scrollView.snp.width)
+        }
+        
+        phoneTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(descriptionTextLabel.snp.bottom).offset(fromPrevOffsetInScrollView)
+            $0.leading.equalTo(scrollView)
+        }
+        
+        phoneTextLabel.snp.makeConstraints {
+            $0.top.equalTo(phoneTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
+            $0.leading.equalTo(scrollView)
+        }
+        
+        completedJobsTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(phoneTextLabel.snp.bottom).offset(fromPrevOffsetInScrollView)
+            $0.leading.equalTo(scrollView)
+        }
+        
+        completedJobsTextLabel.snp.makeConstraints {
+            $0.top.equalTo(completedJobsTitleLabel.snp.bottom).offset(fromTitleOffsetInScrollView)
+            $0.leading.equalTo(scrollView)
+        }
+    }
+}
+
