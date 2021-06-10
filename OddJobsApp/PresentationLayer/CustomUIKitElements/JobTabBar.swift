@@ -7,24 +7,16 @@
 import UIKit
 
 public final class JobTabBar: UITabBar {
-    
-    // MARK: - Variables
-    public var centerButtonColor: UIColor = MainColors.smoothPurple
-    public var centerButtonHeight: CGFloat = 50.0
-    public var padding: CGFloat = 5.0
-    public var buttonImage: UIImage?
-    public var buttonTitle: String?
 
     private var shapeLayer: CALayer?
+    let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialLight))
+    let shpLayer = CAShapeLayer()
     
     override public func draw(_ rect: CGRect) {
         addBlurAndShape()
     }
     
     private func addBlurAndShape() {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        let shpLayer = CAShapeLayer()
         shpLayer.path = createPath()
         blurView.layer.mask = shpLayer
 
@@ -40,7 +32,7 @@ public final class JobTabBar: UITabBar {
     }
     
     private func createPath() -> CGPath {
-        let corner: CGFloat = 16
+        let corner: CGFloat = UIScreen.main.bounds.height * 0.0237
         
         let path = UIBezierPath()
         path.move(to: CGPoint(x: corner * 2, y: frame.height - corner))

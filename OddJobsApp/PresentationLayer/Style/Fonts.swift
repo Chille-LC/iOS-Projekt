@@ -9,4 +9,5 @@ struct Fonts {
     static let regular = "GothicA1-Regular"
     static let extraBold = "GothicA1-ExtraBold"
     static let semiBold = "GothicA1-SemiBold"
+    static let bold = "GothicA1-Bold"
 }

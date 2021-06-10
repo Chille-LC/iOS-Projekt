@@ -11,5 +11,5 @@ struct Job: Decodable {
     let description: String
     let price: Int
     let category: JobCategory
-    //Kasnije jos dopuniti, zasad je ovo samo za potrebe Jobs Menu-a
+    let worker: User
 }

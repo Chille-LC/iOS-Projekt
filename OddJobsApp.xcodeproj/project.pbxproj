@@ -37,6 +37,8 @@
 		63C8925E26681E1200CE27FA /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8925D26681E1200CE27FA /* NavigationCoordinator.swift */; };
 		63C892602668205200CE27FA /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8925F2668205200CE27FA /* ImageEnum.swift */; };
 		63C892662668CBCB00CE27FA /* JobTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892652668CBCB00CE27FA /* JobTabBarController.swift */; };
+		63C892712668D8D500CE27FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C892702668D8D500CE27FA /* User.swift */; };
+		63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C89272266A0FE800CE27FA /* JobViewController.swift */; };
 		F84D219A7D6BC05294132CAA /* Pods_OddJobsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159A52D8F895B39187334F37 /* Pods_OddJobsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		63C8925D26681E1200CE27FA /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		63C8925F2668205200CE27FA /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
 		63C892652668CBCB00CE27FA /* JobTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTabBarController.swift; sourceTree = "<group>"; };
+		63C892702668D8D500CE27FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		63C89272266A0FE800CE27FA /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		AAAC86D063CB2187F45A33DB /* Pods-OddJobsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsApp.debug.xcconfig"; path = "Target Support Files/Pods-OddJobsApp/Pods-OddJobsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +171,7 @@
 			children = (
 				63C8926C2668D11700CE27FA /* Presenters */,
 				63C892682668D06E00CE27FA /* JobMenu */,
+				63C89272266A0FE800CE27FA /* JobViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			children = (
 				63C892512667A48900CE27FA /* Job.swift */,
 				63C892532667A56500CE27FA /* JobCategory.swift */,
+				63C892702668D8D500CE27FA /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +387,8 @@
 				63C8925E26681E1200CE27FA /* NavigationCoordinator.swift in Sources */,
 				63C8924A26675A0300CE27FA /* JobCollectionViewCell.swift in Sources */,
 				63C892482667553A00CE27FA /* RANDOMDATA.swift in Sources */,
+				63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */,
+				63C892712668D8D500CE27FA /* User.swift in Sources */,
 				636E660F26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift in Sources */,
 				63C892542667A56500CE27FA /* JobCategory.swift in Sources */,
 				63C892522667A48900CE27FA /* Job.swift in Sources */,
