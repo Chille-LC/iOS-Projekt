@@ -66,4 +66,9 @@ class NavigationCoordinator: NavigationCoordinatorProtocol {
     func returnToLoginVC() {
         navigationController.popViewController(animated: true)
     }
+    
+    func logout(){
+        let loginVc = LoginViewController(coordinator: self)
+        navigationController.setViewControllers([loginVc], animated: true)
+    }
 }

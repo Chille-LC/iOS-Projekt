@@ -118,23 +118,24 @@ class AddJobViewController: UIViewController {
         //views
         
         titleView = UIView()
-        titleView.layer.addSublayer(titleGradientLayer)
+        //titleView.layer.addSublayer(titleGradientLayer)
         
         priceView = UIView()
-        priceView.layer.addSublayer(priceGradientLayer)
+        //priceView.layer.addSublayer(priceGradientLayer)
         
         categoryView = UIView()
-        categoryView.layer.addSublayer(categoryGradientLayer)
+        //categoryView.layer.addSublayer(categoryGradientLayer)
         
         descriptionView = UIView()
         descriptionView.layer.cornerRadius = 15
-        descriptionView.layer.addSublayer(descriptionGradientLayer)
+        //descriptionView.layer.addSublayer(descriptionGradientLayer)
         
         //textfields
         
         titleField = TextFieldWithPadding()
         titleField.font = UIFont(name: Fonts.semiBold, size: 20)
         titleField.textColor = MainColors.darkBlue
+        titleField.backgroundColor = MainColors.primaryOrange.withAlphaComponent(0.9)
         titleField.adjustsFontSizeToFitWidth = true
         titleField.layer.borderWidth = 0.8
         titleField.layer.borderColor = MainColors.secondaryGray.cgColor
@@ -143,6 +144,7 @@ class AddJobViewController: UIViewController {
         priceField.font = UIFont(name: Fonts.semiBold, size: 20)
         priceField.keyboardType = .numberPad
         priceField.textColor = MainColors.darkBlue
+        priceField.backgroundColor = MainColors.primaryOrange.withAlphaComponent(0.9)
         priceField.adjustsFontSizeToFitWidth = true
         priceField.layer.borderWidth = 0.8
         priceField.layer.borderColor = MainColors.secondaryGray.cgColor
@@ -153,6 +155,7 @@ class AddJobViewController: UIViewController {
         categoryField.font = UIFont(name: Fonts.semiBold, size: 20)
         categoryField.loadDropdownCategories(data: categories)
         categoryField.textColor = MainColors.darkBlue
+        categoryField.backgroundColor = MainColors.primaryOrange.withAlphaComponent(0.9)
         categoryField.adjustsFontSizeToFitWidth = true
         categoryField.layer.borderWidth = 0.8
         categoryField.layer.borderColor = MainColors.secondaryGray.cgColor
@@ -160,8 +163,8 @@ class AddJobViewController: UIViewController {
         descriptionField = UITextView()
         descriptionField.font = UIFont(name: Fonts.semiBold, size: 20)
         descriptionField.textColor = MainColors.darkBlue
-        descriptionField.backgroundColor = .none
-        descriptionField.layer.cornerRadius = 15
+        descriptionField.backgroundColor = MainColors.primaryOrange.withAlphaComponent(0.9)
+        descriptionField.layer.cornerRadius = 20
         descriptionField.layer.borderWidth = 0.8
         descriptionField.layer.borderColor = MainColors.secondaryGray.cgColor
         descriptionField.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
@@ -314,13 +317,13 @@ class AddJobViewController: UIViewController {
         priceGradientLayer.frame = priceView.bounds
         descriptionGradientLayer.frame = descriptionView.bounds
         
-        titleView.layer.cornerRadius = titleView.bounds.height / 4
-        categoryView.layer.cornerRadius = categoryView.bounds.height / 4
-        priceView.layer.cornerRadius = priceView.bounds.height / 4
+        titleView.layer.cornerRadius = titleView.bounds.height / 2.5
+        categoryView.layer.cornerRadius = categoryView.bounds.height / 2.5
+        priceView.layer.cornerRadius = priceView.bounds.height / 2.5
         
-        titleGradientLayer.cornerRadius = titleView.bounds.height / 4
-        categoryGradientLayer.cornerRadius = categoryView.bounds.height / 4
-        priceGradientLayer.cornerRadius = priceView.bounds.height / 4
+        titleGradientLayer.cornerRadius = titleView.bounds.height / 2.5
+        categoryGradientLayer.cornerRadius = categoryView.bounds.height / 2.5
+        priceGradientLayer.cornerRadius = priceView.bounds.height / 2.5
     }
     
     func addGradient(gradientArray: [CGColor]) -> CAGradientLayer {

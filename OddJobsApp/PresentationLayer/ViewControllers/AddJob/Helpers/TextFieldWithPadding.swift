@@ -31,7 +31,7 @@ class TextFieldWithPadding: UITextField {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = bounds.height / 4
+        layer.cornerRadius = bounds.height / 2.5
     }
     
 }

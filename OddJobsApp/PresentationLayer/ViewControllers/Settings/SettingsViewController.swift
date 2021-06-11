@@ -191,6 +191,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
     }
     
     @objc func logoutButtonPressed(){
+        self.coordinator.logout()
     }
     
     override func viewDidLayoutSubviews() {
