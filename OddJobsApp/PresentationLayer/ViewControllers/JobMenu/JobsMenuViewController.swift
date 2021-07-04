@@ -22,7 +22,10 @@ class JobsMenuViewController: UIViewController {
     private var jobsTableView: UITableView!
     private var gradient = CAGradientLayer()
     
-    let model: [[Job]] = generateJobs()
+    private let presenter = JobsVCPresenter()
+    
+    private var jobs: [Job] = []
+    var jobsMatrix: [[Job]] = [[]]
     
     var landscapeConstraints: [Constraint] = []
     var portraitConstraints: [Constraint] = []
@@ -44,9 +47,12 @@ class JobsMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         buildViews()
         addConstraints()
+
+        refreshJobs()
+
     }
     
     override func updateViewConstraints() {
@@ -104,6 +110,7 @@ class JobsMenuViewController: UIViewController {
         searchTextField = CustomTextField()
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Type here",
                                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 1/255, green: 0, blue: 44/255, alpha: 0.6)])
+        searchTextField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
     }
     
     private func createJobsLabel() {
@@ -210,5 +217,39 @@ class JobsMenuViewController: UIViewController {
             })
     }
     //MARK: - Additional functions
+
+    private func refreshJobs() {
+        presenter.refreshJobs{ result in
+            switch result {
+            case .success(let jobsHelper):
+                self.jobs = jobsHelper
+                DispatchQueue.main.async {
+                    self.reloadJobDataViews()
+                }
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            }
+        }
+
+    }
     
+    private func reloadJobDataViews() {
+        jobsMatrix = JobManager.sortBySections(jobs)
+        DispatchQueue.main.async {
+            self.jobsTableView.reloadData()
+        }
+    }
+
+    @objc func textChanged(_ textField: UITextField) {
+        
+        DispatchQueue.main.async {
+            let filter = FilterSettings(searchText: textField.text)
+            self.jobs = self.presenter.filterJobs(filter: filter)
+            self.jobsMatrix = JobManager.sortBySections(self.jobs)
+            self.jobsTableView.subviews.forEach { $0.reloadInputViews() }
+            self.jobsTableView.reloadData()
+        }
+    }
 }

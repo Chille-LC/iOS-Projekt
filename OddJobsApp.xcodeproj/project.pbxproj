@@ -16,6 +16,27 @@
 		527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BD267171C4000C6EF0 /* SignupViewController.swift */; };
 		527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BF26721DCC000C6EF0 /* LoginPresenter.swift */; };
 		527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581C126726831000C6EF0 /* SignupPresenter.swift */; };
+		636DC85C2691A61500FB5983 /* JobsMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */; };
+		636DC85F2691A69300FB5983 /* JobsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC85E2691A69300FB5983 /* JobsUseCase.swift */; };
+		636DC8612691A72A00FB5983 /* FilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8602691A72A00FB5983 /* FilterSettings.swift */; };
+		636DC8632691A76200FB5983 /* JobsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8622691A76200FB5983 /* JobsRepositoryProtocol.swift */; };
+		636DC8662691A7D300FB5983 /* JobsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8652691A7D300FB5983 /* JobsDataRepository.swift */; };
+		636DC86C2691A8A400FB5983 /* JobsNetworkSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC86B2691A8A400FB5983 /* JobsNetworkSourceProtocol.swift */; };
+		636DC86E2691A8CB00FB5983 /* JobsNetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC86D2691A8CB00FB5983 /* JobsNetworkDataSource.swift */; };
+		636DC8702691A92000FB5983 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC86F2691A92000FB5983 /* RequestError.swift */; };
+		636DC8722691A94800FB5983 /* JobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8712691A94800FB5983 /* JobResponse.swift */; };
+		636DC8742691A9C400FB5983 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8732691A9C400FB5983 /* NetworkServiceProtocol.swift */; };
+		636DC8762691A9FB00FB5983 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8752691A9FB00FB5983 /* NetworkService.swift */; };
+		636DC8782691AB2900FB5983 /* JobsCoreDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8772691AB2900FB5983 /* JobsCoreDataSourceProtocol.swift */; };
+		636DC87A2691AB5E00FB5983 /* JobsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8792691AB5E00FB5983 /* JobsCoreDataSource.swift */; };
+		636DC87C2691AD5900FB5983 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC87B2691AD5900FB5983 /* CoreDataStack.swift */; };
+		636DC8802691AE4C00FB5983 /* JobsCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 636DC87E2691AE4C00FB5983 /* JobsCD.xcdatamodeld */; };
+		636DC88A2691B23A00FB5983 /* Job+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8892691B23A00FB5983 /* Job+CD.swift */; };
+		636DC88C2691B50D00FB5983 /* User+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC88B2691B50D00FB5983 /* User+CD.swift */; };
+		636DC8B92691E4FD00FB5983 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8B52691E4FD00FB5983 /* CDUser+CoreDataClass.swift */; };
+		636DC8BA2691E4FD00FB5983 /* CDUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8B62691E4FD00FB5983 /* CDUser+CoreDataProperties.swift */; };
+		636DC8BB2691E4FD00FB5983 /* CDJob+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8B72691E4FD00FB5983 /* CDJob+CoreDataClass.swift */; };
+		636DC8BC2691E4FD00FB5983 /* CDJob+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8B82691E4FD00FB5983 /* CDJob+CoreDataProperties.swift */; };
 		636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F42664C158007BE8AF /* AppDelegate.swift */; };
 		636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E65F62664C158007BE8AF /* SceneDelegate.swift */; };
 		636E65FE2664C15A007BE8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636E65FD2664C15A007BE8AF /* Assets.xcassets */; };
@@ -63,6 +84,27 @@
 		527581BD267171C4000C6EF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		527581BF26721DCC000C6EF0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		527581C126726831000C6EF0 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsMenuPresenter.swift; sourceTree = "<group>"; };
+		636DC85E2691A69300FB5983 /* JobsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsUseCase.swift; sourceTree = "<group>"; };
+		636DC8602691A72A00FB5983 /* FilterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettings.swift; sourceTree = "<group>"; };
+		636DC8622691A76200FB5983 /* JobsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		636DC8652691A7D300FB5983 /* JobsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsDataRepository.swift; sourceTree = "<group>"; };
+		636DC86B2691A8A400FB5983 /* JobsNetworkSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsNetworkSourceProtocol.swift; sourceTree = "<group>"; };
+		636DC86D2691A8CB00FB5983 /* JobsNetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsNetworkDataSource.swift; sourceTree = "<group>"; };
+		636DC86F2691A92000FB5983 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		636DC8712691A94800FB5983 /* JobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobResponse.swift; sourceTree = "<group>"; };
+		636DC8732691A9C400FB5983 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		636DC8752691A9FB00FB5983 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		636DC8772691AB2900FB5983 /* JobsCoreDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCoreDataSourceProtocol.swift; sourceTree = "<group>"; };
+		636DC8792691AB5E00FB5983 /* JobsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCoreDataSource.swift; sourceTree = "<group>"; };
+		636DC87B2691AD5900FB5983 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		636DC87F2691AE4C00FB5983 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		636DC8892691B23A00FB5983 /* Job+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+CD.swift"; sourceTree = "<group>"; };
+		636DC88B2691B50D00FB5983 /* User+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CD.swift"; sourceTree = "<group>"; };
+		636DC8B52691E4FD00FB5983 /* CDUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		636DC8B62691E4FD00FB5983 /* CDUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		636DC8B72691E4FD00FB5983 /* CDJob+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDJob+CoreDataClass.swift"; sourceTree = "<group>"; };
+		636DC8B82691E4FD00FB5983 /* CDJob+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDJob+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		636E65F12664C158007BE8AF /* OddJobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636E65F42664C158007BE8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636E65F62664C158007BE8AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +199,74 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		636DC85D2691A67C00FB5983 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				636DC85E2691A69300FB5983 /* JobsUseCase.swift */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		636DC8642691A7A700FB5983 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				636DC8622691A76200FB5983 /* JobsRepositoryProtocol.swift */,
+				636DC8652691A7D300FB5983 /* JobsDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		636DC8672691A83600FB5983 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				636DC8692691A85900FB5983 /* CoreDataSource */,
+				636DC8682691A84A00FB5983 /* NetworkDataSource */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		636DC8682691A84A00FB5983 /* NetworkDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				636DC8732691A9C400FB5983 /* NetworkServiceProtocol.swift */,
+				636DC8752691A9FB00FB5983 /* NetworkService.swift */,
+				636DC86A2691A87E00FB5983 /* JobsNetworkDataSource */,
+			);
+			path = NetworkDataSource;
+			sourceTree = "<group>";
+		};
+		636DC8692691A85900FB5983 /* CoreDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				636DC87D2691AD7D00FB5983 /* ManagedModels */,
+				636DC8772691AB2900FB5983 /* JobsCoreDataSourceProtocol.swift */,
+				636DC8792691AB5E00FB5983 /* JobsCoreDataSource.swift */,
+				636DC87B2691AD5900FB5983 /* CoreDataStack.swift */,
+				636DC87E2691AE4C00FB5983 /* JobsCD.xcdatamodeld */,
+			);
+			path = CoreDataSource;
+			sourceTree = "<group>";
+		};
+		636DC86A2691A87E00FB5983 /* JobsNetworkDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				636DC86B2691A8A400FB5983 /* JobsNetworkSourceProtocol.swift */,
+				636DC86D2691A8CB00FB5983 /* JobsNetworkDataSource.swift */,
+			);
+			path = JobsNetworkDataSource;
+			sourceTree = "<group>";
+		};
+		636DC87D2691AD7D00FB5983 /* ManagedModels */ = {
+			isa = PBXGroup;
+			children = (
+				636DC8B52691E4FD00FB5983 /* CDUser+CoreDataClass.swift */,
+				636DC8B62691E4FD00FB5983 /* CDUser+CoreDataProperties.swift */,
+				636DC8B72691E4FD00FB5983 /* CDJob+CoreDataClass.swift */,
+				636DC8B82691E4FD00FB5983 /* CDJob+CoreDataProperties.swift */,
+			);
+			path = ManagedModels;
+			sourceTree = "<group>";
+		};
 		636E65E82664C158007BE8AF = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +288,7 @@
 		636E65F32664C158007BE8AF /* OddJobsApp */ = {
 			isa = PBXGroup;
 			children = (
+				636DC85D2691A67C00FB5983 /* DomainLayer */,
 				63C8926D2668D13000CE27FA /* Coordinators */,
 				63C8926F2668D18000CE27FA /* PresentationLayer */,
 				63C8926E2668D16900CE27FA /* DataLayer */,
@@ -223,9 +334,9 @@
 		63C892672668D04800CE27FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				63C8926C2668D11700CE27FA /* Presenters */,
 				5253D0E02672B37A00341395 /* Settings */,
 				5253D0DF2672B34600341395 /* AddJob */,
-				63C8926C2668D11700CE27FA /* Presenters */,
 				63C892682668D06E00CE27FA /* JobMenu */,
 				63C89272266A0FE800CE27FA /* JobViewController.swift */,
 				5253D0DE2672B33A00341395 /* Login */,
@@ -265,8 +376,13 @@
 			isa = PBXGroup;
 			children = (
 				63C892512667A48900CE27FA /* Job.swift */,
-				63C892532667A56500CE27FA /* JobCategory.swift */,
+				636DC8892691B23A00FB5983 /* Job+CD.swift */,
 				63C892702668D8D500CE27FA /* User.swift */,
+				636DC88B2691B50D00FB5983 /* User+CD.swift */,
+				63C892532667A56500CE27FA /* JobCategory.swift */,
+				636DC8602691A72A00FB5983 /* FilterSettings.swift */,
+				636DC86F2691A92000FB5983 /* RequestError.swift */,
+				636DC8712691A94800FB5983 /* JobResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +393,7 @@
 				63C892552667A6D600CE27FA /* JobManager.swift */,
 				527581BF26721DCC000C6EF0 /* LoginPresenter.swift */,
 				527581C126726831000C6EF0 /* SignupPresenter.swift */,
+				636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -292,6 +409,8 @@
 		63C8926E2668D16900CE27FA /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				636DC8672691A83600FB5983 /* DataSources */,
+				636DC8642691A7A700FB5983 /* Repository */,
 				63C8926B2668D0F700CE27FA /* Models */,
 				63C892472667553A00CE27FA /* RANDOMDATA.swift */,
 			);
@@ -438,36 +557,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636DC85C2691A61500FB5983 /* JobsMenuPresenter.swift in Sources */,
 				527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */,
+				636DC8BC2691E4FD00FB5983 /* CDJob+CoreDataProperties.swift in Sources */,
+				636DC8782691AB2900FB5983 /* JobsCoreDataSourceProtocol.swift in Sources */,
 				636E662B26662444007BE8AF /* Fonts.swift in Sources */,
+				636DC8612691A72A00FB5983 /* FilterSettings.swift in Sources */,
+				636DC8742691A9C400FB5983 /* NetworkServiceProtocol.swift in Sources */,
+				636DC85F2691A69300FB5983 /* JobsUseCase.swift in Sources */,
+				636DC8632691A76200FB5983 /* JobsRepositoryProtocol.swift in Sources */,
 				63C8925A26681C2C00CE27FA /* JobTabBar.swift in Sources */,
 				63C892562667A6D600CE27FA /* JobManager.swift in Sources */,
 				63C892662668CBCB00CE27FA /* JobTabBarController.swift in Sources */,
+				636DC8BA2691E4FD00FB5983 /* CDUser+CoreDataProperties.swift in Sources */,
+				636DC86C2691A8A400FB5983 /* JobsNetworkSourceProtocol.swift in Sources */,
 				5253D0E92672C4E600341395 /* TextFieldExtension.swift in Sources */,
 				636E66092664C517007BE8AF /* JobsMenuViewController.swift in Sources */,
 				5253D0EB2672C51000341395 /* TextFieldWithPadding.swift in Sources */,
+				636DC88C2691B50D00FB5983 /* User+CD.swift in Sources */,
 				63C8925E26681E1200CE27FA /* NavigationCoordinator.swift in Sources */,
+				636DC8702691A92000FB5983 /* RequestError.swift in Sources */,
 				63C8924A26675A0300CE27FA /* JobCollectionViewCell.swift in Sources */,
+				636DC8662691A7D300FB5983 /* JobsDataRepository.swift in Sources */,
 				63C892482667553A00CE27FA /* RANDOMDATA.swift in Sources */,
 				63C89273266A0FE800CE27FA /* JobViewController.swift in Sources */,
 				5253D0E52672B40F00341395 /* AddJobViewController.swift in Sources */,
 				63C892712668D8D500CE27FA /* User.swift in Sources */,
+				636DC86E2691A8CB00FB5983 /* JobsNetworkDataSource.swift in Sources */,
+				636DC8BB2691E4FD00FB5983 /* CDJob+CoreDataClass.swift in Sources */,
 				527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */,
+				636DC8722691A94800FB5983 /* JobResponse.swift in Sources */,
+				636DC8762691A9FB00FB5983 /* NetworkService.swift in Sources */,
 				636E660F26661D01007BE8AF /* JobsMenuViewController+TableAndCollectionView.swift in Sources */,
 				63C892542667A56500CE27FA /* JobCategory.swift in Sources */,
 				63C892522667A48900CE27FA /* Job.swift in Sources */,
 				63C8924C26676D1100CE27FA /* UITableViewCell+addSubview.swift in Sources */,
 				636E6614266622C5007BE8AF /* CustomTextField.swift in Sources */,
+				636DC8802691AE4C00FB5983 /* JobsCD.xcdatamodeld in Sources */,
 				63C8924E26678D7D00CE27FA /* WaveView.swift in Sources */,
 				5253D0E72672B43B00341395 /* CategoryPicker.swift in Sources */,
 				636E6611266620D5007BE8AF /* Constants.swift in Sources */,
 				63C892602668205200CE27FA /* ImageEnum.swift in Sources */,
 				636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */,
+				636DC87A2691AB5E00FB5983 /* JobsCoreDataSource.swift in Sources */,
 				527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */,
+				636DC87C2691AD5900FB5983 /* CoreDataStack.swift in Sources */,
 				636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */,
 				5253D0E22672B39100341395 /* SettingsViewController.swift in Sources */,
 				527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */,
 				63C8924626674E7400CE27FA /* JobTableViewCell.swift in Sources */,
+				636DC88A2691B23A00FB5983 /* Job+CD.swift in Sources */,
+				636DC8B92691E4FD00FB5983 /* CDUser+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +803,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		636DC87E2691AE4C00FB5983 /* JobsCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				636DC87F2691AE4C00FB5983 /* Model.xcdatamodel */,
+			);
+			currentVersion = 636DC87F2691AE4C00FB5983 /* Model.xcdatamodel */;
+			path = JobsCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 636E65E92664C158007BE8AF /* Project object */;
 }
