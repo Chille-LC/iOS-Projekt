@@ -66,13 +66,14 @@ extension JobsMenuViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! JobCollectionViewCell
         
-        cell.set(job: jobsMatrix[collectionView.tag][indexPath.item])
+        if((jobsMatrix.count - 1 >= collectionView.tag) && (jobsMatrix[collectionView.tag].count - 1 >= indexPath.item)) {
+            cell.set(job: jobsMatrix[collectionView.tag][indexPath.item])
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         coordinator.setJobVC(for: jobsMatrix[collectionView.tag][indexPath.item])
-        //print("Selected: \(collectionView.tag) , \(indexPath), \(model[collectionView.tag][indexPath.item])")
     }
 }

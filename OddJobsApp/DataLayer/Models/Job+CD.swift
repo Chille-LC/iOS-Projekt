@@ -15,7 +15,7 @@ extension Job {
         description = entity.jobDescription
         price = Int(entity.price)
         category = JobCategory(rawValue: entity.category) ?? JobCategory.school
-        worker = User(with: entity.worker as CDUser)
+        worker = User(with: entity.worker)
     }
     
     func populate(_ entity: CDJob, in context: NSManagedObjectContext) {
@@ -24,7 +24,8 @@ extension Job {
         entity.jobDescription = description
         entity.price = Int32(price)
         entity.category = category.rawValue
-        let cdUser: CDUser = CDUser(context: context)
+        let cdUser = CDUser(context: context)
         worker.populate(cdUser)
+        entity.worker = cdUser
     }
 }

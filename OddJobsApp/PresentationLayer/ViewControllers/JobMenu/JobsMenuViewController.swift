@@ -110,6 +110,7 @@ class JobsMenuViewController: UIViewController {
         searchTextField = CustomTextField()
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Type here",
                                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 1/255, green: 0, blue: 44/255, alpha: 0.6)])
+        searchTextField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
     }
     
     private func createJobsLabel() {
@@ -237,6 +238,17 @@ class JobsMenuViewController: UIViewController {
     private func reloadJobDataViews() {
         jobsMatrix = JobManager.sortBySections(jobs)
         DispatchQueue.main.async {
+            self.jobsTableView.reloadData()
+        }
+    }
+
+    @objc func textChanged(_ textField: UITextField) {
+        
+        DispatchQueue.main.async {
+            let filter = FilterSettings(searchText: textField.text)
+            self.jobs = self.presenter.filterJobs(filter: filter)
+            self.jobsMatrix = JobManager.sortBySections(self.jobs)
+            self.jobsTableView.subviews.forEach { $0.reloadInputViews() }
             self.jobsTableView.reloadData()
         }
     }
