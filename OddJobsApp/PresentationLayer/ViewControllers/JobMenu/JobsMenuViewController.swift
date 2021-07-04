@@ -22,7 +22,10 @@ class JobsMenuViewController: UIViewController {
     private var jobsTableView: UITableView!
     private var gradient = CAGradientLayer()
     
-    let model: [[Job]] = generateJobs()
+    private let presenter = JobsVCPresenter()
+    
+    private var jobs: [Job] = []
+    var jobsMatrix: [[Job]] = [[]]
     
     var landscapeConstraints: [Constraint] = []
     var portraitConstraints: [Constraint] = []
@@ -44,9 +47,12 @@ class JobsMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         buildViews()
         addConstraints()
+
+        refreshJobs()
+
     }
     
     override func updateViewConstraints() {
@@ -210,5 +216,28 @@ class JobsMenuViewController: UIViewController {
             })
     }
     //MARK: - Additional functions
+
+    private func refreshJobs() {
+        presenter.refreshJobs{ result in
+            switch result {
+            case .success(let jobsHelper):
+                self.jobs = jobsHelper
+                DispatchQueue.main.async {
+                    self.reloadJobDataViews()
+                }
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            }
+        }
+
+    }
     
+    private func reloadJobDataViews() {
+        jobsMatrix = JobManager.sortBySections(jobs)
+        DispatchQueue.main.async {
+            self.jobsTableView.reloadData()
+        }
+    }
 }

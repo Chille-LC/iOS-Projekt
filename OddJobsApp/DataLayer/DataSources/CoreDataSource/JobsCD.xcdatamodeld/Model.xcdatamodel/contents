@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDJob" representedClassName="CDJob" syncable="YES">
+        <attribute name="category" attributeType="String"/>
+        <attribute name="identifier" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="jobDescription" attributeType="String"/>
+        <attribute name="price" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="worker" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="job" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES">
+        <attribute name="earned" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="identifier" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="noOfJobs" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="surname" attributeType="String"/>
+        <relationship name="job" toMany="YES" deletionRule="Cascade" destinationEntity="CDJob" inverseName="worker" inverseEntity="CDJob"/>
+    </entity>
+    <elements>
+        <element name="CDJob" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="CDUser" positionX="-54" positionY="36" width="128" height="134"/>
+    </elements>
+</model>

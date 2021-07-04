@@ -4,7 +4,7 @@
 //
 //  Created by Mac Use on 02.06.2021..
 //
-
+/*
 import Foundation
 
 //delete after implemented CD and network services
@@ -28,8 +28,7 @@ func generateJobs() -> [[Job]] {
         Job(id: 9, title: "House cleaning2", description: "I will clean your house. Vacuuming floors, dusting, cleaning windows.", price: 12, category: JobCategory.houseChores, worker: User(id: 5, name: "Marko", surname: "Petrak", phone: "+385 99 123 4567", earned: 10.00, noOfJobs: 1)),
         Job(id: 10, title: "Groceries2", description: "I will buy groceries for you and deliver them to your house.", price: 10, category: JobCategory.houseChores, worker: User(id: 6, name: "Mike", surname: "Coxlong", phone: "+385 99 123 4567", earned: 0.00, noOfJobs: 0))
     ]
-    
     return JobManager.sortBySections(jobs)
-}
+}*/
 
 
