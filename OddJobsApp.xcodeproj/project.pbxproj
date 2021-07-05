@@ -16,6 +16,7 @@
 		527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BD267171C4000C6EF0 /* SignupViewController.swift */; };
 		527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BF26721DCC000C6EF0 /* LoginPresenter.swift */; };
 		527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581C126726831000C6EF0 /* SignupPresenter.swift */; };
+		52BFF18326920457009DB3C1 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFF18226920457009DB3C1 /* LoginStatus.swift */; };
 		636DC85C2691A61500FB5983 /* JobsMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */; };
 		636DC85F2691A69300FB5983 /* JobsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC85E2691A69300FB5983 /* JobsUseCase.swift */; };
 		636DC8612691A72A00FB5983 /* FilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DC8602691A72A00FB5983 /* FilterSettings.swift */; };
@@ -84,6 +85,7 @@
 		527581BD267171C4000C6EF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		527581BF26721DCC000C6EF0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		527581C126726831000C6EF0 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		52BFF18226920457009DB3C1 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsMenuPresenter.swift; sourceTree = "<group>"; };
 		636DC85E2691A69300FB5983 /* JobsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsUseCase.swift; sourceTree = "<group>"; };
 		636DC8602691A72A00FB5983 /* FilterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettings.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				636DC8602691A72A00FB5983 /* FilterSettings.swift */,
 				636DC86F2691A92000FB5983 /* RequestError.swift */,
 				636DC8712691A94800FB5983 /* JobResponse.swift */,
+				52BFF18226920457009DB3C1 /* LoginStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				636DC8742691A9C400FB5983 /* NetworkServiceProtocol.swift in Sources */,
 				636DC85F2691A69300FB5983 /* JobsUseCase.swift in Sources */,
 				636DC8632691A76200FB5983 /* JobsRepositoryProtocol.swift in Sources */,
+				52BFF18326920457009DB3C1 /* LoginStatus.swift in Sources */,
 				63C8925A26681C2C00CE27FA /* JobTabBar.swift in Sources */,
 				63C892562667A6D600CE27FA /* JobManager.swift in Sources */,
 				63C892662668CBCB00CE27FA /* JobTabBarController.swift in Sources */,

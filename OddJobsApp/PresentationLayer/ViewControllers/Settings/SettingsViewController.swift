@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         settingsLabel.adjustsFontSizeToFitWidth = true
         
         phoneNumber = UILabel()
-        phoneNumber.text = "+385 91 342 7780"
+        phoneNumber.text = UserDefaults.standard.string(forKey: "phone")
         phoneNumber.textColor = MainColors.darkBlue
         phoneNumber.font = UIFont(name: Fonts.semiBold, size: 25)
         phoneNumber.textAlignment = .left
@@ -84,14 +84,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         earnedStatement.adjustsFontSizeToFitWidth = true
         
         earned = UILabel()
-        earned.text = "300$"
+        earned.text = UserDefaults.standard.string(forKey: "earned")! + "$"
         earned.textColor = MainColors.darkBlue
         earned.font = UIFont(name: Fonts.semiBold, size: 25)
         earned.textAlignment = .left
         earned.adjustsFontSizeToFitWidth = true
         
         username = UILabel()
-        username.text = "John Doe"
+        username.text = UserDefaults.standard.string(forKey: "name")! + " " + UserDefaults.standard.string(forKey: "surname")!
         username.textAlignment = .left
         username.adjustsFontSizeToFitWidth = true
         username.textColor = MainColors.darkBlue
@@ -191,6 +191,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
     }
     
     @objc func logoutButtonPressed(){
+        coordinator.logout()
     }
     
     override func viewDidLayoutSubviews() {
