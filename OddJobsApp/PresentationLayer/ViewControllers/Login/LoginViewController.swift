@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     convenience init(coordinator: NavigationCoordinator) {
         self.init()
         
-        self.presenter = LoginPresenter(coordinator: coordinator)
+        self.presenter = LoginPresenter(coordinator: coordinator, networkService: NetworkService())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -196,9 +196,28 @@ class LoginViewController: UIViewController {
     @objc func login(_ button: UIButton) {
         presenter.login(username: emailTextField.text!, password: passwordTextField.text!, completion: { [self]
             status in
-            if(!status) {
-                errorLabel.text = "Email or password is incorrect!"
-                errorLabel.isHidden = false
+            
+            if let status = status {
+                switch status {
+                case .success:
+                    break
+                case .error(2, "No internet connection"):
+                    errorLabel.text = "No internet connection!"
+                    errorLabel.isHidden = false
+                    break
+                case .error(1, "Request error"):
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Email or password is incorrect!"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                default:
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Unknown error!"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                }
             }
         })
     }

@@ -31,7 +31,7 @@ class SignupViewController: UIViewController {
     convenience init(coordinator: NavigationCoordinator) {
         self.init()
         
-        self.presenter = SignupPresenter(coordinator: coordinator)
+        self.presenter = SignupPresenter(coordinator: coordinator, networkService: NetworkService())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,14 +185,14 @@ class SignupViewController: UIViewController {
         
         logoImage.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().offset(10)
             $0.height.equalTo(200)
             $0.width.equalTo(200)
         }
         
         nameTextField.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(logoImage.snp.bottom).offset(20)
+            $0.top.equalTo(logoImage.snp.bottom).offset(10)
             $0.width.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.8)
             $0.height.equalTo(50)
         }
@@ -286,7 +286,38 @@ class SignupViewController: UIViewController {
     
     @objc func signup(_ button: UIButton){
         let newUser = User(id: 0, name: nameTextField.text!, surname: surnameTextField.text!, phone: phoneNumberTextField.text!, earned: 0, noOfJobs: 0)
-        presenter.signup(user: newUser, password: passwordTextField.text!, confirmedPassword: confirmPasswordTextField.text!)
+        presenter.signup(user: newUser, username: emailTextField.text!, password: passwordTextField.text!, confirmedPassword: confirmPasswordTextField.text!, completion: { [self]
+            status in
+            
+            if let status = status {
+                switch status {
+                case .success:
+                    break
+                case .error(1, "Request error"):
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Data is incorrect"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                case .error(2, "No internet connection"):
+                    errorLabel.text = "No internet connection!"
+                    errorLabel.isHidden = false
+                    break
+                case .error(3, "Passwords do not match!"):
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Passwords do not match!"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                default:
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Unknown error!"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                }
+            }
+        })
     }
     
     @objc func returnToLogin(_ button: UIButton) {
