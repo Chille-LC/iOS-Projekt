@@ -40,13 +40,12 @@ class SignupPresenter {
                                        "password": password]
             let bodyJson = try? JSONSerialization.data(withJSONObject: body)
             var request = URLRequest(url: url)
-            print(body)
             request.httpBody = bodyJson
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("\(String(describing: bodyJson?.count))", forHTTPHeaderField: "Content-Length")
             
-            networkService.executeUrlRequest(request) { (result: Result<String,
+            networkService.executeUrlRequest(request) { (result: Result<User,
             RequestError>) in
                 switch result {
                 case .failure(let error):
@@ -54,12 +53,12 @@ class SignupPresenter {
                     completion(.error(1, "Request error"))
                 case .success(let value):
                     let userDefaults = UserDefaults.standard
-                    /*userDefaults.set(value.id, forKey: "id")
+                    userDefaults.set(value.id, forKey: "id")
                     userDefaults.set(value.name, forKey: "name")
                     userDefaults.set(value.surname, forKey: "surname")
                     userDefaults.set(value.phone, forKey: "phone")
                     userDefaults.set(value.earned, forKey: "earned")
-                    userDefaults.set(value.noOfJobs, forKey: "noOfJobs")*/
+                    userDefaults.set(value.noOfJobs, forKey: "noOfJobs")
                     completion(.success)
                     DispatchQueue.main.asyncAfter(deadline: .now()){
                         self.coordinator.setJobsMenuVC()

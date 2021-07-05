@@ -69,6 +69,9 @@ class SignupViewController: UIViewController {
         scrollView.addSubview(signupButton)
         scrollView.addSubview(errorLabel)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         view.addSubview(scrollView)
         view.addSubview(loginField)
     }
@@ -285,7 +288,7 @@ class SignupViewController: UIViewController {
     }
     
     @objc func signup(_ button: UIButton){
-        let newUser = User(id: 0, name: nameTextField.text!, surname: surnameTextField.text!, phone: phoneNumberTextField.text!, earned: 0, noOfJobs: 0)
+        let newUser = User(id: 1, name: nameTextField.text!, surname: surnameTextField.text!, phone: phoneNumberTextField.text!, earned: 0, noOfJobs: 0)
         presenter.signup(user: newUser, username: emailTextField.text!, password: passwordTextField.text!, confirmedPassword: confirmPasswordTextField.text!, completion: { [self]
             status in
             
@@ -295,7 +298,7 @@ class SignupViewController: UIViewController {
                     break
                 case .error(1, "Request error"):
                     DispatchQueue.main.asyncAfter(deadline: .now()){
-                        self.errorLabel.text = "Data is incorrect"
+                        self.errorLabel.text = "Email allready used!"
                         self.errorLabel.isHidden = false
                     }
                     break
