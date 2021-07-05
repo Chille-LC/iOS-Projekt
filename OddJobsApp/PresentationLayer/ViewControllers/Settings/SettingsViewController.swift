@@ -19,8 +19,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
     private var settingsLabel: UILabel!
     
     
-    
-    private var myJobsButton: UIButton!
     private var logoutButton: UIButton!
     
     private var coordinator: NavigationCoordinator!
@@ -98,11 +96,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         username.font = UIFont(name: Fonts.extraBold, size: 35)
         username.adjustsFontSizeToFitWidth = true
         
-        myJobsButton = UIButton()
-        myJobsButton.setTitle("My Jobs", for: .normal)
-        myJobsButton.backgroundColor = MainColors.darkBlue
-        myJobsButton.titleLabel?.font = UIFont(name: Fonts.bold, size: 25)
-        myJobsButton.setTitleColor(.white, for: .normal)
         
         logoutButton = UIButton()
         logoutButton.setTitle("Log out", for: .normal)
@@ -121,7 +114,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         view.addSubview(phoneNumber)
         
         view.addSubview(logoutButton)
-        view.addSubview(myJobsButton)
         
     }
     
@@ -175,19 +167,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
             make.left.equalTo(phoneNumber.snp.left)
         }
         
-        myJobsButton.snp.makeConstraints{ make -> Void in
+        logoutButton.snp.makeConstraints{ make -> Void in
             make.top.equalTo(earned.snp.bottom).offset(80)
             make.height.equalTo(phoneNumber.snp.height).multipliedBy(1.1)
             make.width.equalTo(phoneNumber.snp.width)
             make.centerX.equalToSuperview()
         }
                 
-        logoutButton.snp.makeConstraints{ make -> Void in
-            make.top.equalTo(myJobsButton.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(myJobsButton.snp.width)
-            make.height.equalTo(myJobsButton.snp.height)
-        }
     }
     
     @objc func logoutButtonPressed(){
@@ -198,7 +184,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLayoutSubviews()
         gradientLayer.frame = topBoxView.bounds
         logoutButton.layer.cornerRadius = logoutButton.bounds.height / 2.5
-        myJobsButton.layer.cornerRadius = myJobsButton.bounds.height / 2.5
     }
 }
 

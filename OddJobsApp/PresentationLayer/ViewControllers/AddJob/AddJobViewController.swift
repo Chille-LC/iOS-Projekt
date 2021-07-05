@@ -27,6 +27,7 @@ class AddJobViewController: UIViewController {
     private var descriptionLabel: UILabel!
     private var titleLabel: UILabel!
     private var categoryLabel: UILabel!
+    private var errorLabel: UILabel!
     
     //views for textfields
     private var priceView: UIView!
@@ -46,9 +47,13 @@ class AddJobViewController: UIViewController {
     //coordinator
     var coordinator: NavigationCoordinator!
     
+    //presenter
+    var presenter: AddJobPresenter!
+    
     convenience init(coordinator: NavigationCoordinator) {
         self.init()
         self.coordinator = coordinator
+        self.presenter = AddJobPresenter(coordinator: coordinator, networkService: NetworkService())
     }
     
     override func viewDidLoad() {
@@ -107,6 +112,11 @@ class AddJobViewController: UIViewController {
         priceLabel.textColor = MainColors.darkBlue
         priceLabel.adjustsFontSizeToFitWidth = true
         
+        errorLabel = UILabel()
+        errorLabel.font = UIFont(name: Fonts.bold, size: 14)
+        errorLabel.isHidden = true
+        errorLabel.textColor = .red
+        
         //gradients
         
         titleGradientLayer = addGradient(gradientArray: gradientColorsSecondary)
@@ -138,6 +148,7 @@ class AddJobViewController: UIViewController {
         titleField.adjustsFontSizeToFitWidth = true
         titleField.layer.borderWidth = 0.8
         titleField.layer.borderColor = MainColors.secondaryGray.cgColor
+        titleField.addTarget(self, action: #selector(textFieldSelected), for: .editingDidBegin)
         
         priceField = TextFieldWithPadding()
         priceField.font = UIFont(name: Fonts.semiBold, size: 20)
@@ -146,6 +157,7 @@ class AddJobViewController: UIViewController {
         priceField.adjustsFontSizeToFitWidth = true
         priceField.layer.borderWidth = 0.8
         priceField.layer.borderColor = MainColors.secondaryGray.cgColor
+        priceField.addTarget(self, action: #selector(textFieldSelected), for: .editingDidBegin)
         
         let categories = JobCategory.allCases.map { $0.rawValue.lowercased().capitalized }
         
@@ -156,6 +168,7 @@ class AddJobViewController: UIViewController {
         categoryField.adjustsFontSizeToFitWidth = true
         categoryField.layer.borderWidth = 0.8
         categoryField.layer.borderColor = MainColors.secondaryGray.cgColor
+        categoryField.addTarget(self, action: #selector(textFieldSelected), for: .editingDidBegin)
         
         descriptionField = UITextView()
         descriptionField.font = UIFont(name: Fonts.semiBold, size: 20)
@@ -174,6 +187,7 @@ class AddJobViewController: UIViewController {
         submitButton.setTitleColor(.white.withAlphaComponent(0.3), for: .disabled)
         submitButton.titleLabel?.font = UIFont(name: Fonts.bold, size: 25)
         submitButton.setTitle("Submit", for: .normal)
+        submitButton.addTarget(self, action: #selector(addJob), for: .touchUpInside)
         
         topBoxView.layer.addSublayer(gradientLayer)
         view.addSubview(topBoxView)
@@ -188,6 +202,7 @@ class AddJobViewController: UIViewController {
         view.addSubview(categoryView)
         view.addSubview(descriptionView)
         
+        view.addSubview(errorLabel)
         view.addSubview(postLabel)
         view.addSubview(titleLabel)
         view.addSubview(priceLabel)
@@ -295,6 +310,12 @@ class AddJobViewController: UIViewController {
             make.right.equalToSuperview()
         }
         
+        errorLabel.snp.makeConstraints {
+            $0.top.equalTo(priceField.snp.bottom).offset(10)
+            $0.width.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.8)
+            $0.leading.equalTo(priceField.snp.leading)
+        }
+        
         submitButton.snp.makeConstraints{ make -> Void in
             make.top.equalTo(priceView.snp.bottom).offset(30)
             make.width.equalToSuperview().multipliedBy(0.6)
@@ -334,5 +355,47 @@ class AddJobViewController: UIViewController {
         return gradient
     }
     
+    @objc func addJob(_ button: UIButton) {
+        if (titleField.text == "" || descriptionField.text == "" || priceField.text == "" || categoryField.text == "") {
+            errorLabel.text = "All fields are required!"
+            errorLabel.isHidden = false
+            return
+        }
+        presenter.addJob(title: titleField.text!, description: descriptionField.text!, price: Float(priceField.text!)!, category: JobCategory(rawValue: categoryField.text!.uppercased())!, completion:{ [self]
+            status in
+            
+            if let status = status {
+                switch status {
+                case .success:
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.titleField.text = ""
+                        self.categoryField.text = ""
+                        self.descriptionField.text = ""
+                        self.priceField.text = ""
+                    }
+                    break
+                case .error(1, "Request error"):
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Data is incorrect"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                case .error(2, "No internet connection"):
+                    errorLabel.text = "No internet connection!"
+                    errorLabel.isHidden = false
+                    break
+                default:
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.errorLabel.text = "Unknown error!"
+                        self.errorLabel.isHidden = false
+                    }
+                    break
+                }
+            }
+        })
+    }
+    @objc func textFieldSelected(_ textField: CustomTextField) {
+        errorLabel.isHidden = true
+    }
 }
 

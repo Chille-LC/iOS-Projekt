@@ -12,6 +12,7 @@
 		5253D0E72672B43B00341395 /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253D0E62672B43B00341395 /* CategoryPicker.swift */; };
 		5253D0E92672C4E600341395 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253D0E82672C4E600341395 /* TextFieldExtension.swift */; };
 		5253D0EB2672C51000341395 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253D0EA2672C51000341395 /* TextFieldWithPadding.swift */; };
+		52659F7826939EBC000D0E0A /* AddJobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52659F7726939EBC000D0E0A /* AddJobPresenter.swift */; };
 		527581BC266D60B4000C6EF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BB266D60B4000C6EF0 /* LoginViewController.swift */; };
 		527581BE267171C4000C6EF0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BD267171C4000C6EF0 /* SignupViewController.swift */; };
 		527581C026721DCC000C6EF0 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527581BF26721DCC000C6EF0 /* LoginPresenter.swift */; };
@@ -81,6 +82,7 @@
 		5253D0E62672B43B00341395 /* CategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
 		5253D0E82672C4E600341395 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		5253D0EA2672C51000341395 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		52659F7726939EBC000D0E0A /* AddJobPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobPresenter.swift; sourceTree = "<group>"; };
 		527581BB266D60B4000C6EF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		527581BD267171C4000C6EF0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		527581BF26721DCC000C6EF0 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				527581BF26721DCC000C6EF0 /* LoginPresenter.swift */,
 				527581C126726831000C6EF0 /* SignupPresenter.swift */,
 				636DC85B2691A61500FB5983 /* JobsMenuPresenter.swift */,
+				52659F7726939EBC000D0E0A /* AddJobPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				63C892602668205200CE27FA /* ImageEnum.swift in Sources */,
 				636E65F52664C158007BE8AF /* AppDelegate.swift in Sources */,
 				636DC87A2691AB5E00FB5983 /* JobsCoreDataSource.swift in Sources */,
+				52659F7826939EBC000D0E0A /* AddJobPresenter.swift in Sources */,
 				527581C226726831000C6EF0 /* SignupPresenter.swift in Sources */,
 				636DC87C2691AD5900FB5983 /* CoreDataStack.swift in Sources */,
 				636E65F72664C158007BE8AF /* SceneDelegate.swift in Sources */,
