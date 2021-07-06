@@ -27,3 +27,5 @@ struct CellDimensions {
     static let X: CGFloat = 170
     static let Y: CGFloat = 170
 }
+
+let networkService = NetworkService()
